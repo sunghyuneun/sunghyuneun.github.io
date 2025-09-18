@@ -169,6 +169,8 @@
             width: 300px; /* Adjust as needed */
             text-align: left;
             transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .project-item:hover {
@@ -187,12 +189,45 @@
             margin-bottom: 0.5rem;
         }
 
+        .project-item p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .project-item .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .project-item .tag {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
         .project-item a {
             display: inline-block;
-            margin-top: 10px;
             color: #007BFF;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        .project-item .read-more-link {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-decoration: none;
         }
 
         .view-all {
@@ -211,6 +246,48 @@
 
         .view-all a:hover {
             background-color: #0056b3;
+        }
+        
+        /* Project Detail Page Styling */
+        #project-detail-page {
+            padding: 5rem 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            min-height: 80vh;
+        }
+        
+        #project-detail-page .container {
+            max-width: 900px;
+        }
+        
+        #project-detail-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        #project-detail-page img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        #project-detail-page .detail-section {
+            margin-top: 20px;
+        }
+        
+        #project-detail-page .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        #project-detail-page .back-button:hover {
+            color: #0056b3;
         }
 
         /* Page Content Containers */
@@ -335,6 +412,16 @@
             </div>
         </div>
 
+        <!-- Project Detail Page (New!) -->
+        <div id="project-detail-page" class="page">
+            <div class="container">
+                <a href="#" data-page="projects" class="back-button"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                <div id="project-detail-content">
+                    <!-- Project details will be rendered here -->
+                </div>
+            </div>
+        </div>
+
         <!-- Experience Page -->
         <div id="experience-page" class="page">
             <div class="container">
@@ -362,31 +449,43 @@
         // Data for all your projects. You only need to update this array.
         const projectsData = [
             {
-                title: "Autonomous Turret",
-                image: "projects/autonomous-turret/image.png",
-                description: "A brief description of your first project. Explain what it is, what technologies you used, and what you learned.",
-                githubUrl: "https://github.com/yourprofile/project1",
+                id: "portfolio-website",
+                title: "Portfolio Website",
+                image: "https://placehold.co/300x200/FF5733/FFFFFF?text=Project+1",
+                description: "The very website you are viewing! This project demonstrates my skills in creating clean, responsive web applications using a modular JavaScript approach.",
+                longDescription: "This project was built from scratch using pure HTML, CSS, and JavaScript to create a fast, lightweight, and fully responsive personal portfolio. It showcases how to use a single-page application (SPA) model to manage content without complex frameworks. The design prioritizes clean typography and a professional layout, and the use of JavaScript for dynamic content generation makes it easy to add new projects. Key features include a dynamic project grid, a reusable component for each project card, and a seamless navigation system.",
+                githubUrl: "https://github.com/yourprofile/your-portfolio",
+                tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
                 featured: true
             },
             {
-                title: "Project Title 2",
+                id: "ecommerce-platform",
+                title: "E-commerce Platform",
                 image: "https://placehold.co/300x200/33C1FF/FFFFFF?text=Project+2",
-                description: "A brief description of your second project. This project showcases your skills in [mention skills].",
-                githubUrl: "https://github.com/yourprofile/project2",
+                description: "A full-stack e-commerce site with user authentication, a shopping cart, and a secure checkout process.",
+                longDescription: "A robust e-commerce platform built with the MERN stack (MongoDB, Express, React, Node.js). The application includes a RESTful API for product management, user authentication with JSON Web Tokens, and state management using React Context. Users can browse products, add items to a cart, and complete a secure checkout powered by the Stripe API. The front end is styled with Tailwind CSS for a modern, mobile-first design.",
+                githubUrl: "https://github.com/yourprofile/ecommerce-platform",
+                tags: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
                 featured: true
             },
             {
-                title: "Project Title 3",
+                id: "ml-housing-model",
+                title: "Machine Learning Model",
                 image: "https://placehold.co/300x200/99FF33/FFFFFF?text=Project+3",
-                description: "A detailed description of your third project. This project involved a complex algorithm and data visualization.",
-                githubUrl: "https://github.com/yourprofile/project3",
+                description: "A machine learning model for predicting housing prices based on various features. I used Python for data analysis and model training.",
+                longDescription: "This project explores data analysis and predictive modeling using Python and popular libraries. I performed data cleaning, exploratory data analysis, and feature engineering on a dataset of housing prices. Using scikit-learn, I trained and evaluated multiple regression models, including Linear Regression, Ridge, and RandomForestRegressor, to determine the most accurate model for prediction.",
+                githubUrl: "https://github.com/yourprofile/ml-housing-predictor",
+                tags: ["Python", "Pandas", "Scikit-learn", "Jupyter"],
                 featured: false
             },
             {
-                title: "Project Title 4",
+                id: "mobile-game",
+                title: "Mobile Game",
                 image: "https://placehold.co/300x200/C70039/FFFFFF?text=Project+4",
-                description: "This is a great description of your fourth project.",
-                githubUrl: "https://github.com/yourprofile/project4",
+                description: "A simple 2D mobile game built with Unity. It features a fun, arcade-style gameplay loop.",
+                longDescription: "I developed this mobile game in Unity, a powerful game development engine. The game features a dynamic level generation system, intuitive touch controls, and engaging sound effects. This project allowed me to learn C# scripting within the Unity environment, manage game states, and optimize performance for mobile devices.",
+                githubUrl: "https://github.com/yourprofile/mobile-game",
+                tags: ["Unity", "C#"],
                 featured: false
             }
         ];
@@ -395,11 +494,15 @@
         const createProjectElement = (project) => {
             const projectItem = document.createElement('div');
             projectItem.classList.add('project-item');
+            
+            const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            
             projectItem.innerHTML = `
                 <img src="${project.image}" alt="${project.title}">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.githubUrl}" target="_blank">View on GitHub</a>
+                <div class="tag-container">${tagsHtml}</div>
+                <a href="#" class="read-more-link" data-project-id="${project.id}">View Details</a>
             `;
             return projectItem;
         };
@@ -414,6 +517,29 @@
             });
         };
 
+        // This function generates the content for a specific project detail page.
+        const renderProjectDetails = (projectId) => {
+            const project = projectsData.find(p => p.id === projectId);
+            const container = document.getElementById('project-detail-content');
+            
+            if (project) {
+                const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                container.innerHTML = `
+                    <h2>${project.title}</h2>
+                    <div class="tag-container">${tagsHtml}</div>
+                    <img src="${project.image}" alt="${project.title}">
+                    <div class="detail-section">
+                        
+                        <p>${project.longDescription}</p>
+                        <p><a href="${project.githubUrl}" target="_blank">View Project on GitHub</a></p>
+                    </div>
+                    
+                `;
+            } else {
+                container.innerHTML = `<p>Project not found.</p>`;
+            }
+        };
+
         // This function handles page navigation.
         const navigateToPage = (pageId) => {
             const pages = document.querySelectorAll('.page');
@@ -422,15 +548,22 @@
             window.scrollTo(0, 0); // Scroll to the top of the page
         };
 
-        // Event listeners for navigation links
-        document.querySelectorAll('nav a, [data-page]').forEach(link => {
-            link.addEventListener('click', (e) => {
+        // Event listeners for navigation links and project items
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-page], .read-more-link');
+
+            if (target) {
                 e.preventDefault();
-                const pageId = link.getAttribute('data-page');
+                const pageId = target.getAttribute('data-page');
+                const projectId = target.getAttribute('data-project-id');
+
                 if (pageId) {
                     navigateToPage(pageId + '-page');
+                } else if (projectId) {
+                    renderProjectDetails(projectId);
+                    navigateToPage('project-detail-page');
                 }
-            });
+            }
         });
 
         // Initial rendering on page load
@@ -438,8 +571,10 @@
             const featuredProjects = projectsData.filter(p => p.featured);
             renderProjects('featured-projects-container', featuredProjects);
             renderProjects('all-projects-container', projectsData);
+            
+            // Navigate to the home page initially
+            navigateToPage('home-page');
         });
-
     </script>
 </body>
 </html>
