@@ -1,0 +1,38 @@
+[
+    {
+        "id": "portfolio-website",
+        "title": "Portfolio Website",
+        "image": "https://placehold.co/300x200/FF5733/FFFFFF?text=Project+1",
+        "description": "The very website you are viewing! This project demonstrates my skills in creating clean, responsive web applications using a modular JavaScript approach.",
+        "githubUrl": "https://github.com/yourprofile/your-portfolio",
+        "tags": ["HTML", "CSS", "JavaScript", "Responsive Design"],
+        "featured": true
+    },
+    {
+        "id": "ecommerce-platform",
+        "title": "E-commerce Platform",
+        "image": "https://placehold.co/300x200/33C1FF/FFFFFF?text=Project+2",
+        "description": "A full-stack e-commerce site with user authentication, a shopping cart, and a secure checkout process.",
+        "githubUrl": "https://github.com/yourprofile/ecommerce-platform",
+        "tags": ["React", "Node.js", "Express", "MongoDB", "Stripe"],
+        "featured": true
+    },
+    {
+        "id": "ml-housing-model",
+        "title": "Machine Learning Model",
+        "image": "https://placehold.co/300x200/99FF33/FFFFFF?text=Project+3",
+        "description": "A machine learning model for predicting housing prices based on various features. I used Python for data analysis and model training.",
+        "githubUrl": "https://github.com/yourprofile/ml-housing-predictor",
+        "tags": ["Python", "Pandas", "Scikit-learn", "Jupyter"],
+        "featured": false
+    },
+    {
+        "id": "mobile-game",
+        "title": "Mobile Game",
+        "image": "https://placehold.co/300x200/C70039/FFFFFF?text=Project+4",
+        "description": "A simple 2D mobile game built with Unity. It features a fun, arcade-style gameplay loop.",
+        "githubUrl": "https://github.com/yourprofile/mobile-game",
+        "tags": ["Unity", "C#"],
+        "featured": false
+    }
+]

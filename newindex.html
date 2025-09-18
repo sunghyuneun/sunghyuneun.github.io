@@ -169,6 +169,8 @@
             width: 300px; /* Adjust as needed */
             text-align: left;
             transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .project-item:hover {
@@ -187,12 +189,46 @@
             margin-bottom: 0.5rem;
         }
 
+        .project-item p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        /* General Tag Styling (made more general to apply to all pages) */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
         .project-item a {
             display: inline-block;
-            margin-top: 10px;
             color: #007BFF;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        .project-item .read-more-link {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-decoration: none;
         }
 
         .view-all {
@@ -211,6 +247,48 @@
 
         .view-all a:hover {
             background-color: #0056b3;
+        }
+        
+        /* Project Detail Page Styling */
+        #project-detail-page {
+            padding: 5rem 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            min-height: 80vh;
+        }
+        
+        #project-detail-page .container {
+            max-width: 900px;
+        }
+        
+        #project-detail-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        #project-detail-page img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        #project-detail-page .detail-section {
+            margin-top: 20px;
+        }
+        
+        #project-detail-page .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        #project-detail-page .back-button:hover {
+            color: #0056b3;
         }
 
         /* Page Content Containers */
@@ -312,8 +390,8 @@
                 <div class="page-header">
                     <h2>About Me</h2>
                 </div>
-                <div class="page-content">
-                    <p>Write a more detailed description about yourself here. Include your background, interests, skills, and professional goals. This is your chance to tell your story and show your personality.</p>
+                <div class="page-content" id="about-content">
+                    <!-- About content will be loaded here from a separate Markdown file -->
                 </div>
             </div>
         </div>
@@ -332,14 +410,24 @@
             </div>
         </div>
 
+        <!-- Project Detail Page (New!) -->
+        <div id="project-detail-page" class="page">
+            <div class="container">
+                <a href="#" data-page="projects" class="back-button"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                <div id="project-detail-content">
+                    <!-- Project details will be rendered here -->
+                </div>
+            </div>
+        </div>
+
         <!-- Experience Page -->
         <div id="experience-page" class="page">
             <div class="container">
                 <div class="page-header">
                     <h2>Experience</h2>
                 </div>
-                <div class="page-content">
-                    <p>List your professional experience, internships, or relevant academic experiences here.</p>
+                <div class="page-content" id="experience-content">
+                    <!-- Experience content will be loaded here from a separate Markdown file -->
                 </div>
             </div>
         </div>
@@ -350,49 +438,55 @@
             <p>&copy; 2024 Your Name. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
-        // Data for all your projects. You only need to update this array.
-        const projectsData = [
-            {
-                title: "Project Title 1",
-                image: "https://placehold.co/300x200/FF5733/FFFFFF?text=Project+1",
-                description: "A brief description of your first project. Explain what it is, what technologies you used, and what you learned.",
-                githubUrl: "https://github.com/yourprofile/project1",
-                featured: true
-            },
-            {
-                title: "Project Title 2",
-                image: "https://placehold.co/300x200/33C1FF/FFFFFF?text=Project+2",
-                description: "A brief description of your second project. This project showcases your skills in [mention skills].",
-                githubUrl: "https://github.com/yourprofile/project2",
-                featured: true
-            },
-            {
-                title: "Project Title 3",
-                image: "https://placehold.co/300x200/99FF33/FFFFFF?text=Project+3",
-                description: "A detailed description of your third project. This project involved a complex algorithm and data visualization.",
-                githubUrl: "https://github.com/yourprofile/project3",
-                featured: false
-            },
-            {
-                title: "Project Title 4",
-                image: "https://placehold.co/300x200/C70039/FFFFFF?text=Project+4",
-                description: "This is a great description of your fourth project.",
-                githubUrl: "https://github.com/yourprofile/project4",
-                featured: false
+        // A simple Markdown to HTML converter function
+        const markdownToHtml = (markdown) => {
+            let html = markdown
+                // Convert headings
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                // Convert paragraphs and line breaks
+                .replace(/\n/g, '<p>')
+                // Add more conversions here as needed (e.g., lists, bold, italics)
+            
+            return html;
+        };
+
+        // Fetches content from a given file path and returns the text
+        const fetchContent = async (path) => {
+            try {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`Could not fetch ${path}`);
+                }
+                return await response.text();
+            } catch (error) {
+                console.error(error);
+                return 'Content not found.';
             }
-        ];
+        };
+
+        // Fetches and displays markdown content for a specific page
+        const loadMarkdownPage = async (pageId, filePath) => {
+            const content = await fetchContent(filePath);
+            const htmlContent = markdownToHtml(content);
+            document.getElementById(pageId).innerHTML = htmlContent;
+        };
 
         // This function dynamically generates the HTML for each project.
         const createProjectElement = (project) => {
             const projectItem = document.createElement('div');
             projectItem.classList.add('project-item');
+            
+            const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            
             projectItem.innerHTML = `
                 <img src="${project.image}" alt="${project.title}">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.githubUrl}" target="_blank">View on GitHub</a>
+                <div class="tag-container">${tagsHtml}</div>
+                <a href="#" class="read-more-link" data-project-id="${project.id}">View Details</a>
             `;
             return projectItem;
         };
@@ -407,32 +501,88 @@
             });
         };
 
+        // This function generates the content for a specific project detail page.
+        const renderProjectDetails = async (projectId) => {
+            const projects = await fetchProjectsData();
+            const project = projects.find(p => p.id === projectId);
+            const container = document.getElementById('project-detail-content');
+            
+            if (project) {
+                const longDescription = await fetchContent(`content/projects/${projectId}.md`);
+                const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                container.innerHTML = `
+                    <h2>${project.title}</h2>
+                    <div class="tag-container">${tagsHtml}</div>
+                    <img src="${project.image}" alt="${project.title}">
+                    <div class="detail-section">
+                        ${markdownToHtml(longDescription)}
+                        <p><a href="${project.githubUrl}" target="_blank">View Project on GitHub</a></p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `<p>Project not found.</p>`;
+            }
+        };
+
+        // This function fetches the projects metadata from projects.json
+        const fetchProjectsData = async () => {
+            try {
+                const response = await fetch('data/projects.json');
+                if (!response.ok) {
+                    throw new Error('Could not fetch projects data.');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        };
+
         // This function handles page navigation.
-        const navigateToPage = (pageId) => {
+        const navigateToPage = async (pageId) => {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0); // Scroll to the top of the page
+
+            // Load content dynamically based on pageId
+            if (pageId === 'about-page') {
+                await loadMarkdownPage('about-content', 'content/about.md');
+            } else if (pageId === 'experience-page') {
+                await loadMarkdownPage('experience-content', 'content/experience.md');
+            } else if (pageId === 'projects-page') {
+                const projects = await fetchProjectsData();
+                renderProjects('all-projects-container', projects);
+            }
         };
 
-        // Event listeners for navigation links
-        document.querySelectorAll('nav a, [data-page]').forEach(link => {
-            link.addEventListener('click', (e) => {
+        // Event listeners for navigation links and project items
+        document.addEventListener('click', async (e) => {
+            const target = e.target.closest('[data-page], .read-more-link');
+
+            if (target) {
                 e.preventDefault();
-                const pageId = link.getAttribute('data-page');
+                const pageId = target.getAttribute('data-page');
+                const projectId = target.getAttribute('data-project-id');
+
                 if (pageId) {
                     navigateToPage(pageId + '-page');
+                } else if (projectId) {
+                    await renderProjectDetails(projectId);
+                    navigateToPage('project-detail-page');
                 }
-            });
+            }
         });
 
         // Initial rendering on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const featuredProjects = projectsData.filter(p => p.featured);
+        document.addEventListener('DOMContentLoaded', async () => {
+            const projects = await fetchProjectsData();
+            const featuredProjects = projects.filter(p => p.featured);
             renderProjects('featured-projects-container', featuredProjects);
-            renderProjects('all-projects-container', projectsData);
+            
+            // Navigate to the home page initially
+            navigateToPage('home-page');
         });
-
     </script>
 </body>
 </html>
