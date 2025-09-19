@@ -479,9 +479,11 @@
                 .replace(/^### (.*$)/gim, '<h3>$1</h3>')
                 .replace(/^## (.*$)/gim, '<h2>$1</h2>')
                 .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-                // Convert list items
-                .replace(/^\* (.*$)/gim, '<li>$1</li>')
-                .replace(/^(<li>.*<\/li>)$/gim, '<ul>$1</ul>')
+                // Convert images
+                .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="markdown-image">')
+                // Convert bold and italic text
+                .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
                 // Convert paragraphs and line breaks
                 .replace(/\n\n/g, '</p><p>')
                 .replace(/\n/g, '<br>')
