@@ -1,31 +1,43 @@
-Professional Experience
+# Professional Experience
 
-[Your Job Title] at [Company Name]
-Dates of Employment
+### Mechanical Engineering Intern @ Global Gourmet Foods
 
-    Responsibility 1: Description of a key responsibility or achievement.
+May 2025 - Present 
 
-    Responsibility 2: Description of another key responsibility or achievement.
+- Containerized and edited a JavaScript web app using Docker, React.js, and MariaDB to digitize factory operation records
+- Created a secure data bridge that collects PLC data on a network and displays it on another using Docker, Python, InfluxDB, and Grafana
+- Deployed Proxmox VE to host virtual machines and run containerized programs across multiple factory computers
+- Automated invoice processing flows with Microsoft Power Automate and Excel Scripts to reduce approval delays
+- Generated flattened engineering drawings of 3D CAD models; exported DXF files for waterjet cutters, and researched appropriate conveyor components such as casters, bolts, and nuts
+  
 
-[Your Internship Title] at [Company Name]
-Dates of Internship
+# Design Team Experience
 
-    Responsibility 1: Description of a key responsibility or achievement during your internship.
+### UBC Rover, Arm Mechanical Subteam
 
-    Responsibility 2: Description of another key responsibility or achievement.
+Sept 2024 - Present
 
-Education
+- Developed 3D-printed driver holders with aviator sockets using SolidWorks for ease of access in wiring
+- Soldered aviator plugs and wires to drivers to establish connections to arm actuators and sensors
+- Employed SolidWorks to redesign forearm axis of motion from belt-driven arrangement to internal gear to remove necessity for belt maintenance
+- Researched and implemented tapered roller bearings, internal gear, and brushless motor with teammates which was optimized for the new axis of motion
+- Machined holes into a bevel gear using a milling machine to securely attach onto arm with fasteners
 
-Bachelor of Applied Science in Mechanical Engineering, Mechatronics Specialization
-University of British Columbia | April 2028
+### UBC Thunderbots, Electrical Subteam
 
-    Relevant Coursework: List a few key courses here. 
+Sept 2025 - Present
+
+- Literally nothing I just joined
+  
+
+# Education
 
 
-UBC Rover, Arm Mechanical Subteam
+## University of British Columbia
+### Bachelor of Applied Science in Mechanical Engineering, Mechatronics Specialization
 
-UBC Thunderbots, Electrical Subteam
+Sept 2023 - April 2028
 
-Global Gourmet Foods, Mech Intern (But I do a bunch of CS stuff like JavaScript webapp, Python PLC Data collector)
+# Research
 
-If you are a professor, this line could be YOUR lab right here! (Please let me do research I will be a slave)
+### If you are a professor, this line could be YOUR lab right here! (Please let me do research I will be a slave)
