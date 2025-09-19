@@ -2,7 +2,7 @@
     {
         "id": "portfolio-website",
         "title": "Portfolio Website",
-        "image": "https://placehold.co/300x200/FF5733/FFFFFF?text=Project+1",
+        "image": "./assets/img/sou.png",
         "description": "The very website you are viewing! This project demonstrates my skills in creating clean, responsive web applications using a modular JavaScript approach.",
         "githubUrl": "https://github.com/yourprofile/your-portfolio",
         "tags": ["HTML", "CSS", "JavaScript", "Responsive Design"],
