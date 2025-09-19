@@ -12,7 +12,7 @@
         "id": "balancing-robot",
         "title": "Self Balancing Robot",
         "image": "./assets/img/balancing-robot.png",
-        "description": "Self Balancing Robot. Currently PID Controller in Gazebo, will create RL controller and physical version.",
+        "description": "Self Balancing Robot. Currently PID Controller in Gazebo, RL controller and physical deployed model are planned.",
         "githubUrl": "https://github.com/sunghyuneun/Balancing-Robot",
         "tags": ["Gazebo", "PID", "C++", "Altium", "Arduino","Linux"],
         "featured": true
