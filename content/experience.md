@@ -32,11 +32,12 @@ Sept 2025 - Present
 
 # Education
 
-
 ## University of British Columbia
+
 ### Bachelor of Applied Science in Mechanical Engineering, Mechatronics Specialization
 
 Sept 2023 - April 2028
+- Yeah I took a bunch of courses
 
 # Research
 
