@@ -1,6 +1,3 @@
-I am a [Your Profession/Student Status] with a passion for building innovative and efficient solutions. I specialize in [Your Key Skills] and am always eager to learn new technologies.
-My Story
+Hi, I'm Sung Hyun (Greg). I am working towards entering robotics, and I am learning control theory and machine learning. In my spare time, I like reading (currently on Nexus by Yuval Noah Harari), learning to play the guitar, and enjoying my school days with friends.
 
-Write a more detailed description about yourself here. Include your background, interests, skills, and professional goals. This is your chance to tell your story and show your personality.
-
-I am a driven individual who thrives on solving complex problems. My journey began with a curiosity for how things work, leading me to explore various fields and develop a diverse skill set. I believe in continuous learning and adapting to new challenges.
+I’m also studying reinforcement learning in my spare time, and I’m interested in research and methods to deploy models into hardware.

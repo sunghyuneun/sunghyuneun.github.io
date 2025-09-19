@@ -16,7 +16,16 @@ Dates of Internship
 
 Education
 
-[Your Degree] in [Your Major]
-University Name | Graduation Year
+Bachelor of Applied Science in Mechanical Engineering, Mechatronics Specialization
+University of British Columbia | April 2028
 
-    Relevant Coursework: List a few key courses here.
+    Relevant Coursework: List a few key courses here. 
+
+
+UBC Rover, Arm Mechanical Subteam
+
+UBC Thunderbots, Electrical Subteam
+
+Global Gourmet Foods, Mech Intern (But I do a bunch of CS stuff like JavaScript webapp, Python PLC Data collector)
+
+If you are a professor, this line could be YOUR lab right here! (Please let me do research I will be a slave)
