@@ -446,11 +446,14 @@
                 .replace(/^### (.*$)/gim, '<h3>$1</h3>')
                 .replace(/^## (.*$)/gim, '<h2>$1</h2>')
                 .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                // Convert bold and italic text
+                .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
                 // Convert paragraphs and line breaks
-                .replace(/\n/g, '<p>')
-                // Add more conversions here as needed (e.g., lists, bold, italics)
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>')
             
-            return html;
+            return `<p>${html}</p>`;
         };
 
         // Fetches content from a given file path and returns the text
@@ -458,6 +461,7 @@
             try {
                 const response = await fetch(path);
                 if (!response.ok) {
+                    console.error(`Error fetching file: ${path}. Status: ${response.status}`);
                     throw new Error(`Could not fetch ${path}`);
                 }
                 return await response.text();
@@ -527,9 +531,11 @@
         // This function fetches the projects metadata from projects.json
         const fetchProjectsData = async () => {
             try {
-                const response = await fetch('data/projects.json');
+                const url = 'data/projects.json';
+                console.log(`Attempting to fetch projects from: ${url}`);
+                const response = await fetch(url);
                 if (!response.ok) {
-                    throw new Error('Could not fetch projects data.');
+                    throw new Error(`Could not fetch projects data from ${url}. Status: ${response.status}`);
                 }
                 return await response.json();
             } catch (error) {

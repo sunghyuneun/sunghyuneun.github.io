@@ -478,11 +478,14 @@
                 .replace(/^### (.*$)/gim, '<h3>$1</h3>')
                 .replace(/^## (.*$)/gim, '<h2>$1</h2>')
                 .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                // Convert list items
+                .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                .replace(/^(<li>.*<\/li>)$/gim, '<ul>$1</ul>')
                 // Convert paragraphs and line breaks
-                .replace(/\n/g, '<p>')
-                // Add more conversions here as needed (e.g., lists, bold, italics)
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>')
             
-            return html;
+            return `<p>${html}</p>`;
         };
 
         // Fetches content from a given file path and returns the text
@@ -490,6 +493,7 @@
             try {
                 const response = await fetch(path);
                 if (!response.ok) {
+                    console.error(`Error fetching file: ${path}. Status: ${response.status}`);
                     throw new Error(`Could not fetch ${path}`);
                 }
                 return await response.text();
@@ -540,7 +544,7 @@
             const container = document.getElementById('project-detail-content');
             
             if (project) {
-                const longDescription = await fetchContent(`${projectId}.md`);
+                const longDescription = await fetchContent(`content/projects/${projectId}.md`);
                 const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
                 container.innerHTML = `
                     <h2>${project.title}</h2>
@@ -559,7 +563,7 @@
         // This function fetches the projects metadata from projects.json
         const fetchProjectsData = async () => {
             try {
-                const response = await fetch('projects.json');
+                const response = await fetch('data/projects.json');
                 if (!response.ok) {
                     throw new Error('Could not fetch projects data.');
                 }
@@ -579,9 +583,9 @@
 
             // Load content dynamically based on pageId
             if (pageId === 'about-page') {
-                await loadMarkdownPage('about-content', 'about.md');
+                await loadMarkdownPage('about-content', 'content/about.md');
             } else if (pageId === 'experience-page') {
-                await loadMarkdownPage('experience-content', 'experience.md');
+                await loadMarkdownPage('experience-content', 'content/experience.md');
             } else if (pageId === 'projects-page') {
                 const projects = await fetchProjectsData();
                 renderProjects('all-projects-container', projects);
@@ -618,3 +622,4 @@
     </script>
 </body>
 </html>
+
