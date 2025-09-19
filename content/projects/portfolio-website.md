@@ -1,3 +1,0 @@
-This project was built from scratch using pure HTML, CSS, and JavaScript to create a fast, lightweight, and fully responsive personal portfolio. It showcases how to use a single-page application (SPA) model to manage content without complex frameworks.
-
-The design prioritizes clean typography and a professional layout, and the use of JavaScript for dynamic content generation makes it easy to add new projects. Key features include a dynamic project grid, a reusable component for each project card, and a seamless navigation system.
