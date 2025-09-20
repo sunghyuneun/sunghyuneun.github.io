@@ -23,7 +23,7 @@
         "image": "./assets/img/comolake.jpg",
         "description": "The small projects I've created on my path to Reinforcement Learning.",
         "githubUrl": "https://www.youtube.com/watch?v=cWc7vYjgnTs",
-        "tags": ["Python", "Pandas", "Scikit-learn", "Jupyter"],
+        "tags": ["Python"],
         "featured": false
     },
     {
