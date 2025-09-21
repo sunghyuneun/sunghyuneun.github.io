@@ -27,7 +27,7 @@ Sept 2024 - Present
 
 Sept 2025 - Present
 
-- Literally nothing I just joined
+- I just joined
   
 
 # Education
@@ -37,7 +37,15 @@ Sept 2025 - Present
 ### Bachelor of Applied Science in Mechanical Engineering, Mechatronics Specialization
 
 Sept 2023 - April 2028
-- Yeah I took a bunch of courses
+- Linear Algebra
+- Differential Equations
+- Multivariable Calculus
+- Solid Mechanics
+- Fluid Dynamics
+- Dynamics (Statics?)
+- Thermodynamics
+- Circuit Analysis
+- Material Science
 
 # Research
 
