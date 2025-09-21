@@ -1,5 +1,7 @@
 Created a simple balancing robot model in Gazebo, with rectangular prism and wheels.
 
+# Gazebo Simulation - PID
+
 ![Failed PID Parameters](./assets/img/gazebo3.gif)
 
 Model with Failed PID Parameters
@@ -12,3 +14,9 @@ Successful Balancing PID Program
 What's next: 
 - Cascading PID Control. Angle PID inner loop, velocity PID outer loop
 - Reinforcement learning controls.
+
+# Physical Model
+
+In progress, will use Arduino, Stepper Motors, MPU6050 IMU
+
+![Balancing Robot Altium](./assets/img/balanceAltium.png)
