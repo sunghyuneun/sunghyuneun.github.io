@@ -5,7 +5,7 @@
 May 2025 - Present 
 
 - Containerized and edited a JavaScript web app using Docker, React.js, and MariaDB to digitize factory operation records
-- Created a secure data bridge that collects PLC data on a network and displays it on another using Docker, Python, InfluxDB, and Grafana
+- Created a secure data bridge on a Zimaboard that collects PLC data on a network and displays it on a webpage on another network using Docker, Python, InfluxDB, and Grafana
 - Deployed Proxmox VE to host virtual machines and run containerized programs across multiple factory computers
 - Automated invoice processing flows with Microsoft Power Automate and Excel Scripts to reduce approval delays
 - Generated flattened engineering drawings of 3D CAD models; exported DXF files for waterjet cutters, and researched appropriate conveyor components such as casters, bolts, and nuts

@@ -4,7 +4,5 @@ Hi, I'm Sung Hyun (Greg). I am working towards entering robotics, and I am learn
 I’m also studying reinforcement learning in my spare time, and I’m interested in research and methods to deploy models into hardware.
 
 
-Also N is the goat
 
-
-![N](https://www.pokebeach.com/news/2025/06/20250601_200051.png)
+![N](./assets/img/htnImage.jpg)
