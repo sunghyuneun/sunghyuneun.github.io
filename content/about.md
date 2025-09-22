@@ -3,5 +3,3 @@ Hi, I'm Sung Hyun (Greg). I am working towards entering robotics, and I am learn
 
 I’m also studying reinforcement learning in my spare time, and I’m interested in research and methods to deploy models into hardware.
 
-
-!(IKB Study Grind)[./assets/img/ikb.jpg]
