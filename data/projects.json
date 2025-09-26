@@ -22,9 +22,9 @@
         "title": "Machine Learning Projects",
         "image": "./assets/img/comolake.jpg",
         "description": "The small projects I've created on my path to Reinforcement Learning.",
-        "githubUrl": "https://www.youtube.com/watch?v=cWc7vYjgnTs",
+        "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
         "tags": ["Python"],
-        "featured": false
+        "featured": true
     },
     {
         "id": "misc-projects",

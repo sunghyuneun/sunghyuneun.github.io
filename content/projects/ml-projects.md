@@ -1,4 +1,5 @@
-There's nothing here yet.
+A bunch of Python projects I have created.
 
 
-Soon to come.
+I implemented Vectors as a class in OOP/Vector.py.
+Added vector addition, scalar multiplication, dot product, and equal.
