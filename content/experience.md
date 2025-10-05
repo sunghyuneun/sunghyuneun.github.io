@@ -27,7 +27,8 @@ Sept 2024 - Present
 
 Sept 2025 - Present
 
-- I just joined
+- Developing Firmware for STM32 Microcontrollers on a Motor Driver board
+- BLDC, Three-Phase Inverter
   
 
 # Education
