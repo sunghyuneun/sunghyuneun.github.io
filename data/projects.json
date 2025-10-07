@@ -12,7 +12,7 @@
         "id": "balancing-robot",
         "title": "Self Balancing Robot",
         "image": "./assets/img/balancing-robot.png",
-        "description": "Self Balancing Robot. Currently PID Controller in Gazebo, RL controller and physical deployed model are planned.",
+        "description": "Self Balancing Robot. Currently PID Controller in Gazebo, RL controller being created, physical deployed model is planned.",
         "githubUrl": "https://github.com/sunghyuneun/Balancing-Robot",
         "tags": ["Gazebo", "PID", "C++", "Altium", "Arduino","Linux"],
         "featured": true
@@ -21,7 +21,7 @@
         "id": "ml-projects",
         "title": "Machine Learning Projects",
         "image": "./assets/img/comolake.jpg",
-        "description": "The small projects I've created on my path to Reinforcement Learning.",
+        "description": "Reinforcement Learning. Starting with CartPole (self-balancing robot).",
         "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
         "tags": ["Python"],
         "featured": true
