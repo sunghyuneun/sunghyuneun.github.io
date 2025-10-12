@@ -12,6 +12,7 @@ Successful Balancing PID Program
 
 # RL Controls
 See ML projects for CartPole (Basic RL controls)
+![CartPole](./assets/img/CartPole.gif)
 
 What's next: 
 - Cascading PID Control. Angle PID inner loop, velocity PID outer loop
