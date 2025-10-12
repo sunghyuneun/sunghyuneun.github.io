@@ -475,147 +475,40 @@
     <script>
         // A simple Markdown to HTML converter function
         const markdownToHtml = (markdown) => {
-            // Escape HTML special characters first (except for already formatted HTML)
-            const escapeHtml = (text) => {
-                return text
-                    .replace(/&(?!#?\w+;)/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;');
-            };
-
-            let html = markdown;
-
-            // Store code blocks temporarily to prevent processing their content
-            const codeBlocks = [];
-            html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-                const placeholder = `__CODEBLOCK_${codeBlocks.length}__`;
-                codeBlocks.push(`<pre><code class="language-${lang || 'plaintext'}">${escapeHtml(code.trim())}</code></pre>`);
-                return placeholder;
-            });
-
-            // Store inline code temporarily
-            const inlineCodes = [];
-            html = html.replace(/`([^`]+)`/g, (match, code) => {
-                const placeholder = `__INLINECODE_${inlineCodes.length}__`;
-                inlineCodes.push(`<code>${escapeHtml(code)}</code>`);
-                return placeholder;
-            });
-
-            // Convert horizontal rules (must be before other conversions)
-            html = html.replace(/^(?:[-*_]){3,}$/gim, '<hr>');
-
-            // Convert headings (##### to # for proper order)
-            html = html.replace(/^##### (.*$)/gim, '<h5>$1</h5>');
-            html = html.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
-            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-
-            // Convert blockquotes
-            html = html.replace(/^> (.+)$/gim, '<blockquote>$1</blockquote>');
-            // Merge consecutive blockquotes
-            html = html.replace(/<\/blockquote>\n<blockquote>/g, '\n');
-
-            // Convert images (before links to avoid conflict)
-            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="markdown-image">');
-
-            // Convert links
-            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-
-            // Convert autolinks
-            html = html.replace(/<(https?:\/\/[^\s>]+)>/g, '<a href="$1">$1</a>');
-
-            // Convert task lists (must be before regular lists)
-            html = html.replace(/^- \[([ x])\] (.+)$/gim, (match, checked, text) => {
-                const isChecked = checked === 'x' ? 'checked' : '';
-                return `<li class="task-list-item"><input type="checkbox" ${isChecked} disabled> ${text}</li>`;
-            });
-
-            // Convert unordered lists
-            html = html.replace(/^\* (.+)$/gim, '<li>$1</li>');
-            html = html.replace(/^- (.+)$/gim, '<li>$1</li>');
-            html = html.replace(/^+ (.+)$/gim, '<li>$1</li>');
-
-            // Wrap consecutive list items in <ul>
-            html = html.replace(/(<li>.*<\/li>\n?)+/g, (match) => {
-                return `<ul>${match}</ul>`;
-            });
-
-            // Convert ordered lists
-            html = html.replace(/^\d+\. (.+)$/gim, '<li>$1</li>');
-            // Wrap consecutive numbered list items in <ol>
-            html = html.replace(/(<li>.*<\/li>\n?)(?=\n|$)/g, (match) => {
-                if (!match.includes('<ul>')) {
-                    return `<ol>${match}</ol>`;
-                }
-                return match;
-            });
-
-            // Convert tables
-            const tableRegex = /(\|.+\|)\n(\|[-: ]+\|)\n((?:\|.+\|\n?)+)/g;
-            html = html.replace(tableRegex, (match, header, separator, rows) => {
-                const headerCells = header.split('|').filter(cell => cell.trim()).map(cell => 
-                    `<th>${cell.trim()}</th>`
-                ).join('');
+            let html = markdown
+                // NEW: Convert Links: [text](url) -> <a href="url" target="_blank">text</a>
+                .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
                 
-                const rowsHtml = rows.trim().split('\n').map(row => {
-                    const cells = row.split('|').filter(cell => cell.trim()).map(cell => 
-                        `<td>${cell.trim()}</td>`
-                    ).join('');
-                    return `<tr>${cells}</tr>`;
-                }).join('');
+                // Convert headings: # Heading -> <h1>...</h1> (etc. for ## and ###)
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+
+                // NEW: Convert Unordered List Items (* or -) into <ul><li>...</li></ul> blocks
+                .replace(/^[\s]*[\*-] (.*$)/gim, '<ul><li>$1</li></ul>')
                 
-                return `<table><thead><tr>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody></table>`;
-            });
+                // NEW: Convert Ordered List Items (1. 2. 3.) into <ol><li>...</li></ol> blocks
+                .replace(/^[\s]*[0-9]+\. (.*$)/gim, '<ol><li>$1</li></ol>')
+                
+                // NEW: Merge consecutive <ul> tags into a single block (e.g., </ul><ul> -> empty string)
+                .replace(/<\/ul>\s*<ul>/gim, '')
+                
+                // NEW: Merge consecutive <ol> tags into a single block
+                .replace(/<\/ol>\s*<ol>/gim, '')
 
-            // Convert text formatting (order matters!)
-            // Strikethrough
-            html = html.replace(/~~([^~]+)~~/g, '<del>$1</del>');
-
-            // Bold and italic combined (must be before individual bold/italic)
-            html = html.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
-            html = html.replace(/___([^_]+)___/g, '<strong><em>$1</em></strong>');
-
-            // Bold
-            html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-            html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
-
-            // Italic
-            html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-            html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
-
-            // Restore inline code
-            inlineCodes.forEach((code, i) => {
-                html = html.replace(`__INLINECODE_${i}__`, code);
-            });
-
-            // Restore code blocks
-            codeBlocks.forEach((block, i) => {
-                html = html.replace(`__CODEBLOCK_${i}__`, block);
-            });
-
-            // Convert paragraphs (must be near the end)
-            // Split by double newlines to create paragraphs
-            const lines = html.split('\n\n');
-            html = lines.map(line => {
-                line = line.trim();
-                // Don't wrap if it's already a block element
-                if (!line || 
-                    line.startsWith('<h') || 
-                    line.startsWith('<ul') || 
-                    line.startsWith('<ol') || 
-                    line.startsWith('<blockquote') || 
-                    line.startsWith('<pre') || 
-                    line.startsWith('<table') ||
-                    line.startsWith('<hr')) {
-                    return line;
-                }
-                // Convert single line breaks within paragraphs to <br>
-                line = line.replace(/\n/g, '<br>');
-                return `<p>${line}</p>`;
-            }).join('\n');
-
-            return html;
+                // Convert images: ![alt](url) -> <img src="url" alt="alt">
+                .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="markdown-image">')
+                
+                // Convert bold and italic text: **bold** / *italic*
+                .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+                
+                // Convert paragraphs and line breaks: double newline to </p><p>, single newline to <br>
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+            
+            // Final wrap to ensure the entire block of text starts and ends with a paragraph tag.
+            return `<p>${html}</p>`;
         };
 
         // Fetches content from a given file path and returns the text
