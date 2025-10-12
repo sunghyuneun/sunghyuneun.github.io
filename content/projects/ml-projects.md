@@ -6,7 +6,8 @@ Solving CartPole in OpenAI Gymnasium to start, with Q-Learning
 GIF:
 ![CartPole](./assets/img/CartPole.gif)
 
-[YouTube Link](https://youtu.be/VVXo3xQP4JQ) (In case the quality is too bad):
+[YouTube Link](https://youtu.be/VVXo3xQP4JQ) (GIF):
+[Youtube Link 2](https://youtu.be/llmo3DPEJQg) (Better Data):
 
 # Misc Projects
 I implemented Vectors as a class in OOP/Vector.py.
