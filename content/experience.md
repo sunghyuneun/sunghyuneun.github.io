@@ -22,6 +22,7 @@ Sept 2024 - Present
 - Employed SolidWorks to redesign forearm axis of motion from belt-driven arrangement to internal gear to remove necessity for belt maintenance
 - Researched and implemented tapered roller bearings, internal gear, and brushless motor with teammates which was optimized for the new axis of motion
 - Machined holes into a bevel gear using a milling machine to securely attach onto arm with fasteners
+- Performed FEA Analysis on Wrist Part
 
 ### UBC Thunderbots, Electrical Subteam
 
@@ -29,6 +30,7 @@ Sept 2025 - Present
 
 - Developing Firmware for STM32 Microcontrollers on a Motor Driver board
 - BLDC, Three-Phase Inverter
+- Simulating control model of Three-Phase Inverter in MATLAB, Simulink
   
 
 # Education

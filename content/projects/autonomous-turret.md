@@ -1,16 +1,16 @@
 # Autonomous Turret
-
 I created this in 2 weeks, for submission to Hack the North application. 
 
-## Mechanical
 
+## Mechanical
 Recycled Flywheels from old Nerf Zeus gun.
 
-![Assembled Turret](./assets/img/turretAssembled.png)
 
+![Assembled Turret](./assets/img/turretAssembled.png)
 3D Printed Design, with the Flywheels Attached. 
 
 ## Software
+
 
 ![Color Detection](./assets/img/color-analyzer.png)
 
