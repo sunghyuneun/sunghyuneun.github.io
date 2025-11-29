@@ -32,7 +32,7 @@
         "image": "./assets/img/thunderbotsicon.jpeg",
         "description": "My work for the UBC Thunderbots Electrical Subteam.",
         "githubUrl": "https://github.com/sunghyuneun/Thunderbots-Contributions",
-        "tags": ["Altium, LTSpice, Control Theory"],
+        "tags": ["Altium", "LTSpice", "Control Theory"],
         "featured": true
     },
     {
@@ -41,7 +41,7 @@
         "image": "./assets/img/ubcrover.jpeg",
         "description": "My work for the UBC Rover Arm Subteam.",
         "githubUrl": "https://github.com/sunghyuneun/Rover-Contributions",
-        "tags": ["SolidWorks, CAD, FEA Analysis"],
+        "tags": ["SolidWorks", "CAD", "FEA Analysis"],
         "featured": false
     },
     {
