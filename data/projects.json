@@ -14,7 +14,7 @@
         "image": "./assets/img/balancing-robot.png",
         "description": "Self Balancing Robot. Currently PID Controller in Gazebo, RL controller being created, physical deployed model is planned.",
         "githubUrl": "https://github.com/sunghyuneun/Balancing-Robot",
-        "tags": ["Gazebo", "PID", "C++", "Altium", "Arduino","Linux"],
+        "tags": ["Gazebo", "PID Control", "C++", "Altium", "Arduino","Linux"],
         "featured": true
     },
     {
@@ -25,6 +25,24 @@
         "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
         "tags": ["Python"],
         "featured": true
+    },
+    {
+        "id": "tbots-work",
+        "title": "Thunderbots Contributions",
+        "image": "./assets/img/thunderbotsicon.jpeg",
+        "description": "My work for the UBC Thunderbots Electrical Subteam.",
+        "githubUrl": "https://github.com/sunghyuneun/Thunderbots-Contributions",
+        "tags": ["Altium, LTSpice, Control Theory"],
+        "featured": true
+    },
+    {
+        "id": "rover-work",
+        "title": "Rover Contributions",
+        "image": "./assets/img/ubcrover.jpeg",
+        "description": "My work for the UBC Rover Arm Subteam.",
+        "githubUrl": "https://github.com/sunghyuneun/Rover-Contributions",
+        "tags": ["SolidWorks, CAD, FEA Analysis"],
+        "featured": false
     },
     {
         "id": "misc-projects",
