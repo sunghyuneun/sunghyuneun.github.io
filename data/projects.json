@@ -1,11 +1,11 @@
 [
     {
-        "id": "autonomous-turret",
-        "title": "Autonomous Turret",
-        "image": "./assets/img/autonomous-turret.png",
-        "description": "Raspberry Pi controlled Autonomous Turret built in 3 weeks.",
+        "id": "autonomous-drone",
+        "title": "Autonomous Drone",
+        "image": "./assets/img/comolake.jpg",
+        "description": "Exploratory drone that created to explore SLAM, Odometry, Reinforcement Learning, Kalman Filters, similar to Turtlebot 3.",
         "githubUrl": "https://github.com/sunghyuneun/Autonomous-Turret",
-        "tags": ["Raspberry Pi", "ROS2", "Python", "OpenCV","C++","Arduino", "Linux","Solidworks"],
+        "tags": ["ROS2", "SLAM", "RL", "Python", "C++", "Raspberry Pi", "Arduino", "Linux", "Solidworks"],
         "featured": true
     },
     {
@@ -23,7 +23,7 @@
         "image": "./assets/img/comolake.jpg",
         "description": "Reinforcement Learning. Starting with CartPole (self-balancing robot).",
         "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
-        "tags": ["Python"],
+        "tags": ["Python", "RL"],
         "featured": true
     },
     {
@@ -43,6 +43,15 @@
         "githubUrl": "https://github.com/sunghyuneun/Rover-Contributions",
         "tags": ["SolidWorks", "CAD", "FEA Analysis"],
         "featured": false
+    },
+    {
+        "id": "autonomous-turret",
+        "title": "Autonomous Turret",
+        "image": "./assets/img/autonomous-turret.png",
+        "description": "Raspberry Pi controlled Autonomous Turret built in 3 weeks.",
+        "githubUrl": "https://github.com/sunghyuneun/Autonomous-Turret",
+        "tags": ["Raspberry Pi", "ROS2", "Python", "OpenCV","C++","Arduino", "Linux", "Solidworks"],
+        "featured": true
     },
     {
         "id": "misc-projects",
