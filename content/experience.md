@@ -56,4 +56,4 @@ Sept 2023 - April 2028
 
 # Research
 
-### If you are a professor, this line could be YOUR lab right here! (Please let me do research I will be a slave)
+### If you are a professor, this line could be YOUR lab right here! (Please please please please let me do research)

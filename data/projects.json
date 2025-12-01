@@ -3,8 +3,8 @@
         "id": "autonomous-drone",
         "title": "Autonomous Drone",
         "image": "./assets/img/comolake.jpg",
-        "description": "Exploratory drone that created to explore SLAM, Odometry, Reinforcement Learning, Kalman Filters, similar to Turtlebot 3.",
-        "githubUrl": "https://github.com/sunghyuneun/Autonomous-Turret",
+        "description": "Exploratory drone that created to explore SLAM, Odometry, and Reinforcement Learning, similar to Turtlebot.",
+        "githubUrl": "https://github.com/sunghyuneun/Autonomous-Drone",
         "tags": ["ROS2", "SLAM", "RL", "Python", "C++", "Raspberry Pi", "Arduino", "Linux", "Solidworks"],
         "featured": true
     },

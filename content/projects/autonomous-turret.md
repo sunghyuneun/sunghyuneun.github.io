@@ -1,9 +1,9 @@
 # Autonomous Turret
-I created this in 2 weeks, for submission to Hack the North application. 
+I created this in 2 weeks, for submission to Hack the North's application. 
 
 
 ## Mechanical
-Recycled Flywheels from old Nerf Zeus gun.
+Reused flywheels from old Nerf Zeus gun.
 
 
 ![Assembled Turret](./assets/img/turretAssembled.png)
