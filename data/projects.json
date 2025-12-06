@@ -2,7 +2,7 @@
     {
         "id": "autonomous-drone",
         "title": "Autonomous Drone",
-        "image": "./assets/img/ikb.jpg",
+        "image": "./assets/img/kaedegami2.jpg",
         "description": "Exploratory drone that created to explore SLAM, Odometry, and Reinforcement Learning, similar to Turtlebot.",
         "githubUrl": "https://github.com/sunghyuneun/Autonomous-Drone",
         "tags": ["ROS2", "SLAM", "RL", "Python", "C++", "Raspberry Pi", "Arduino", "Linux", "Solidworks"],
