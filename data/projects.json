@@ -2,7 +2,7 @@
     {
         "id": "autonomous-drone",
         "title": "Autonomous Drone",
-        "image": "./assets/img/comolake.jpg",
+        "image": "./assets/img/ikb.jpg",
         "description": "Exploratory drone that created to explore SLAM, Odometry, and Reinforcement Learning, similar to Turtlebot.",
         "githubUrl": "https://github.com/sunghyuneun/Autonomous-Drone",
         "tags": ["ROS2", "SLAM", "RL", "Python", "C++", "Raspberry Pi", "Arduino", "Linux", "Solidworks"],
@@ -11,7 +11,7 @@
     {
         "id": "balancing-robot",
         "title": "Self Balancing Robot",
-        "image": "./assets/img/balancing-robot.png",
+        "image": "./assets/img/balancing_bot/balancing-robot.png",
         "description": "Self Balancing Robot. Currently PID Controller in Gazebo, RL controller being created, physical deployed model is planned.",
         "githubUrl": "https://github.com/sunghyuneun/Balancing-Robot",
         "tags": ["Gazebo", "PID Control", "C++", "Altium", "Arduino","Linux"],
@@ -29,7 +29,7 @@
     {
         "id": "tbots-work",
         "title": "Thunderbots Contributions",
-        "image": "./assets/img/thunderbotsicon.jpeg",
+        "image": "./assets/img/thunderbots/thunderbotsicon.jpeg",
         "description": "My work for the UBC Thunderbots Electrical Subteam.",
         "githubUrl": "https://github.com/sunghyuneun/Thunderbots-Contributions",
         "tags": ["Altium", "LTSpice", "Control Theory"],
@@ -38,7 +38,7 @@
     {
         "id": "rover-work",
         "title": "Rover Contributions",
-        "image": "./assets/img/ubcrover.jpeg",
+        "image": "./assets/img/rover/ubcrover.jpeg",
         "description": "My work for the UBC Rover Arm Subteam.",
         "githubUrl": "https://github.com/sunghyuneun/Rover-Contributions",
         "tags": ["SolidWorks", "CAD", "FEA Analysis"],
@@ -47,7 +47,7 @@
     {
         "id": "autonomous-turret",
         "title": "Autonomous Turret",
-        "image": "./assets/img/autonomous-turret.png",
+        "image": "./assets/img/autonomous_turret/autonomous-turret.png",
         "description": "Raspberry Pi controlled Autonomous Turret built in 3 weeks.",
         "githubUrl": "https://github.com/sunghyuneun/Autonomous-Turret",
         "tags": ["Raspberry Pi", "ROS2", "Python", "OpenCV","C++","Arduino", "Linux", "Solidworks"],

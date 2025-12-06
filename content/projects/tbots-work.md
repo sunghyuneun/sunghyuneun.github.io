@@ -1,12 +1,22 @@
-## Official Team Work
+# Overview 
 
+Official Team Work
 1. Used MATLAB and control theory to model a stable closed-loop controller in Field Oriented Control for our motors. 
 2. Redesigned differential op-amp current sense circuit on Motor Driver board, essential to Field Oriented Control. Designed input differential low-pass filter, and an anti-aliasing low-pass filter to filter out crosstalk. Used LTSpice with small-signal AC analysis bode plot to verify circuit functionality.
+Thunderbots Application
+3. Specified parts and designed for a 12V to 5V buck converter in my Thunderbots Electrical team application. 
 
+# Current Sense
 
-## Buck Converter Design
+Schematic using specced parts.
+![LTSpice Schematic](./assets/img/thunderbots/ltspice_schematic.png)
 
-Also specified parts and designed for a 12V to 5V buck converter in my Thunderbots Electrical team application. 
+Bode plot of small signal AC analysis. 
+![LTSpice Bode Plot](./assets/img/thunderbots/ltspice_bodeplot.png)
 
-![Assembled Turret](./assets/img/thunderbotsSchematic.png)
-![Assembled Turret](./assets/img/thunderbotsAltium.png)
+# Buck Converter Design
+
+12V to 5V buck converter schematic and PCB in my Thunderbots Electrical team application. 
+
+![Altium Schematic](./assets/img/thunderbots/thunderbotsSchematic.png)
+![Altium PCB](./assets/img/thunderbots/thunderbotsAltium.png)
