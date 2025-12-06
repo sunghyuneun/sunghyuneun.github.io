@@ -28,11 +28,13 @@ Sept 2024 - Present
 
 Sept 2025 - Present
 
-### Firmware
+Firmware
 - Developing Firmware for STM32 Microcontrollers on a Motor Driver board
 - BLDC, Three-Phase Inverter
 - Simulating control model of Three-Phase Inverter in MATLAB, Simulink
-### Current Sense
+
+
+Current Sense
 - Redesigned differential op-amp current sense circuit on Motor Driver board for use with FOC
 - Researched and calculated component values considering low-pass cutoff frequencies to filter out crosstalk while maintaining signal integrity
 - Simulated circuit using LTSpice with small-signal AC analysis bode plot to verify functional circuit
@@ -56,4 +58,4 @@ Sept 2023 - April 2028
 
 # Research
 
-## If you are a professor, this line could be YOUR lab right here! (Please please please please let me do research)
+### If you are a professor, this line could be YOUR lab right here! (Please please please please let me do research)

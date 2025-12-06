@@ -4,10 +4,12 @@ Created a simple balancing robot model in Gazebo, with rectangular prism and whe
 # Gazebo Simulation - PID
 
 ![Failed PID Parameters](./assets/img/balancing_bot/gazebo3.gif)
+
 Model with Failed PID Parameters
 
 
 ![Successful PID](./assets/img/balancing_bot/gazebo4.gif)
+
 Successful Balancing PID Program
 
 
