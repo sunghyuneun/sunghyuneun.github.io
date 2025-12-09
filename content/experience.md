@@ -13,17 +13,6 @@ May 2025 - Present
 
 # Design Team Experience
 
-## UBC Rover, Arm Mechanical Subteam
-
-Sept 2024 - Present
-
-- Developed 3D-printed driver holders with aviator sockets using SolidWorks for ease of access in wiring
-- Soldered aviator plugs and wires to drivers to establish connections to arm actuators and sensors
-- Employed SolidWorks to redesign forearm axis of motion from belt-driven arrangement to internal gear to remove necessity for belt maintenance
-- Researched and implemented tapered roller bearings, internal gear, and brushless motor with teammates which was optimized for the new axis of motion
-- Machined holes into a bevel gear using a milling machine to securely attach onto arm with fasteners
-- Performed FEA Analysis on Wrist Part
-
 ## UBC Thunderbots, Electrical Subteam
 
 Sept 2025 - Present
@@ -38,6 +27,18 @@ Current Sense
 - Redesigned differential op-amp current sense circuit on Motor Driver board for use with FOC
 - Researched and calculated component values considering low-pass cutoff frequencies to filter out crosstalk while maintaining signal integrity
 - Simulated circuit using LTSpice with small-signal AC analysis bode plot to verify functional circuit
+
+
+## UBC Rover, Arm Mechanical Subteam
+
+Sept 2024 - Dec 2025
+
+- Developed 3D-printed driver holders with aviator sockets using SolidWorks for ease of access in wiring
+- Soldered aviator plugs and wires to drivers to establish connections to arm actuators and sensors
+- Employed SolidWorks to redesign forearm axis of motion from belt-driven arrangement to internal gear to remove necessity for belt maintenance
+- Researched and implemented tapered roller bearings, internal gear, and brushless motor with teammates which was optimized for the new axis of motion
+- Machined holes into a bevel gear using a milling machine to securely attach onto arm with fasteners
+- Performed FEA Analysis on Wrist Part
 
 # Education
 

@@ -1,5 +1,5 @@
 # Overview
-I created this in 2 weeks, for submission to Hack the North's application. 
+I created an autonomous turret in 2 weeks, for submission to Hack the North's application. 
 
 
 # Mechanical
