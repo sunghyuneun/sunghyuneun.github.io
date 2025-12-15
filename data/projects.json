@@ -3,9 +3,18 @@
         "id": "autonomous-drone",
         "title": "Autonomous Drone",
         "image": "./assets/img/kaedegami2.png",
-        "description": "Exploratory drone that created to explore SLAM, Odometry, and Reinforcement Learning, similar to Turtlebot.",
+        "description": "Exploratory drone that created to explore SLAM, Odometry, and Reinforcement Learning, inspired by Turtlebot.",
         "githubUrl": "https://github.com/sunghyuneun/Autonomous-Drone",
         "tags": ["ROS2", "SLAM", "RL", "Python", "C++", "Raspberry Pi", "Arduino", "Linux", "Solidworks"],
+        "featured": true
+    },
+    {
+        "id": "ml-projects",
+        "title": "Machine Learning Projects",
+        "image": "./assets/img/comolake.jpg",
+        "description": "Reinforcement Learning. Starting with HalfCheetah and CartPole.",
+        "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
+        "tags": ["Python", "RL"],
         "featured": true
     },
     {
@@ -15,15 +24,6 @@
         "description": "Self Balancing Robot. Currently PID Controller in Gazebo, RL controller being created, physical deployed model is planned.",
         "githubUrl": "https://github.com/sunghyuneun/Balancing-Robot",
         "tags": ["Gazebo", "PID Control", "C++", "Altium", "Arduino","Linux"],
-        "featured": true
-    },
-    {
-        "id": "ml-projects",
-        "title": "Machine Learning Projects",
-        "image": "./assets/img/comolake.jpg",
-        "description": "Reinforcement Learning. Starting with CartPole (self-balancing robot).",
-        "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
-        "tags": ["Python", "RL"],
         "featured": true
     },
     {
