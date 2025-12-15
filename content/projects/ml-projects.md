@@ -21,10 +21,10 @@ GIF:
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/llmo3DPEJQg" title="CartPole 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# NMIST Dataset Classification
-Implemented two neural networks on Kaggle to classify hand-drawn numbers from the NMIST dataset.
+# MNIST Dataset Classification
+Implemented two neural networks on Kaggle to classify hand-drawn numbers from the MNIST dataset.
 One was manually created with only NumPy to understand the mathematics of forward propagation, backward propagation, weights, bias, and gradient descent.
-Other utilized PyTorch to create the neural network. 
+Other utilized PyTorch to create the neural network to gain familiarity.
 
 # Misc Projects
 I implemented Vectors as a class in OOP/Vector.py.

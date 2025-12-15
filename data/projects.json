@@ -2,7 +2,7 @@
     {
         "id": "autonomous-drone",
         "title": "Autonomous Drone",
-        "image": "./assets/img/kaedegami2.png",
+        "image": "./assets/img/autonomous_drone/fullassembly.png",
         "description": "Exploratory drone that created to explore SLAM, Odometry, and Reinforcement Learning, inspired by Turtlebot.",
         "githubUrl": "https://github.com/sunghyuneun/Autonomous-Drone",
         "tags": ["ROS2", "SLAM", "RL", "Python", "C++", "Raspberry Pi", "Arduino", "Linux", "Solidworks"],
@@ -11,10 +11,10 @@
     {
         "id": "ml-projects",
         "title": "Machine Learning Projects",
-        "image": "./assets/img/comolake.jpg",
+        "image": "./assets/img/machine_learning/halfcheetah.png",
         "description": "Reinforcement Learning. Starting with HalfCheetah and CartPole.",
         "githubUrl": "https://github.com/sunghyuneun/ML-Projects",
-        "tags": ["Python", "RL"],
+        "tags": ["Python", "RL", "MuJoCo", "PyTorch", "Gazebo"],
         "featured": true
     },
     {
