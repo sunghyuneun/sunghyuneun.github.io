@@ -1,6 +1,15 @@
 # Overview
 A bunch of Python projects I have created.
 
+# HalfCheetah
+
+Solved HalfCheetah model in MuJoCo with PPO. Edited hyperparameters, also edited reward algorithm.
+
+![Tensorboard](./assets/img/machine_learning/tensorboard1.png)
+
+<iframe width="1440" height="571" src="https://www.youtube.com/embed/8FB4Oqc1sF4" title="Half Cheetah Attempt 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1440" height="571" src="https://www.youtube.com/embed/G44jySY86hA" title="HalfCheetah Modified Reward Function" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 # CartPole
 Solving CartPole in OpenAI Gymnasium to start, with Q-Learning
 GIF:
