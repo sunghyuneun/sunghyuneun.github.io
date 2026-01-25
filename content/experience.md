@@ -1,15 +1,11 @@
-# Professional Experience
+# Research Experience
 
-## Mechanical Engineering Intern @ Global Gourmet Foods
+## PRIME Lab
+Jan 2026 - Present
+- Developing Lagrangian Mechanics-based model of tendon-based finger to map motor torque commands
+to enable accurate control of 3-joint fingertip force
+- Implementing prediction controller and model to account for dynamic variations for precise manipulation
 
-May 2025 - Present 
-
-- Created a secure data bridge on a Zimaboard that collects PLC data on a network and displays it on a webpage on another network using Docker, Python, InfluxDB, and Grafana
-- Deployed Proxmox VE to host virtual machines and run containerized programs across multiple computers
-- Containerized, edited a JavaScript web app using Docker, React.js, and MariaDB to digitize factory records
-- Automated invoice processing with Microsoft Power Automate and Excel Scripts to reduce approval delays
-- Generated flattened engineering drawings of 3D CAD models; exported DXF files for waterjet cutters, and researched appropriate conveyor components such as casters, bolts, and nuts
-  
 
 # Design Team Experience
 
@@ -57,7 +53,14 @@ Sept 2023 - April 2028
 - Circuit Analysis
 - Material Science
 
-# Research
+# Professional Experience
 
-### PRIME Lab
-- Recently joined PRIME Lab with Dr. Chao Liu
+## Mechanical Engineering Intern @ Global Gourmet Foods
+
+May 2025 - Present 
+
+- Created a secure data bridge on a Zimaboard that collects PLC data on a network and displays it on a webpage on another network using Docker, Python, InfluxDB, and Grafana
+- Deployed Proxmox VE to host virtual machines and run containerized programs across multiple computers
+- Containerized, edited a JavaScript web app using Docker, React.js, and MariaDB to digitize factory records
+- Automated invoice processing with Microsoft Power Automate and Excel Scripts to reduce approval delays
+- Generated flattened engineering drawings of 3D CAD models; exported DXF files for waterjet cutters, and researched appropriate conveyor components such as casters, bolts, and nuts
