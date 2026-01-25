@@ -2,8 +2,7 @@
 
 ## PRIME Lab
 Jan 2026 - Present
-- Developing Lagrangian Mechanics-based model of tendon-based finger to map motor torque commands
-to enable accurate control of 3-joint fingertip force
+- Developing Lagrangian Mechanics-based model of tendon-based finger to map motor torque commands to enable accurate control of 3-joint fingertip force
 - Implementing prediction controller and model to account for dynamic variations for precise manipulation
 
 
