@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f9f7f4; --surface: #ffffff; --border: #e2ddd8;
+      --text: #1a1714; --muted: #7a746e; --accent: #2d5a3d;
+      --accent-lt: #eaf2ec; --tag-bg: #efefec; --tag-text: #4a4742;
+      --nav-bg: rgba(249,247,244,0.88);
+      --dot: #2d5a3d; --line: #e2ddd8;
+    }
+    [data-theme="dark"] {
+      --bg: #141210; --surface: #1e1b18; --border: #302c28;
+      --text: #f0ece6; --muted: #8a8480; --accent: #6aaa7d;
+      --accent-lt: #1a2e20; --tag-bg: #272320; --tag-text: #b8b2aa;
+      --nav-bg: rgba(20,18,16,0.88);
+      --dot: #6aaa7d; --line: #302c28;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 300; transition: background 0.3s, color 0.3s; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.3s, border-color 0.3s; }
+    .nav-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--tag-bg); }
+    .nav-links .nav-cta { color: var(--accent); border: 1px solid var(--accent); padding: 0.35rem 0.85rem; border-radius: 4px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--accent); color: #fff; }
+    .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 4px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: border-color 0.2s, color 0.2s; margin-left: 0.5rem; flex-shrink: 0; }
+    .theme-toggle:hover { border-color: var(--text); color: var(--text); }
+    .icon-sun, .icon-moon { width: 15px; height: 15px; }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    .page-header { padding: 120px 0 64px; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--text); }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    /* ── Timeline ── */
+    .timeline-section { padding: 72px 0 100px; }
+    .timeline-label { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 3rem; }
+
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3.5rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    /* Dot */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 7px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--dot);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 1px var(--dot);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    /* Active / current item gets a pulsing ring */
+    .timeline-item.current::before {
+      box-shadow: 0 0 0 1px var(--dot), 0 0 0 4px var(--accent-lt);
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .timeline-date {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .timeline-badge {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 20px;
+      background: var(--accent-lt);
+      color: var(--accent);
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .timeline-org {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.75rem;
+    }
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+    .timeline-list {
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 560px;
+      padding-left: 1.1em;
+      margin-bottom: 0;
+    }
+    .timeline-list li { margin-bottom: 0.25rem; }
+    .timeline-list li:last-child { margin-bottom: 0; }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.85rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+    }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+    footer .footer-links { display: flex; gap: 1.25rem; }
+    footer a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+  </style>
+  <script>const s=localStorage.getItem("theme");if(s)document.documentElement.setAttribute("data-theme",s);</script>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Résumé</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <p class="page-eyebrow">Experience</p>
+      <h1>My<em> contributions</em></h1>
+    </header>
+
+    <section class="timeline-section" aria-label="Experience timeline">
+      <p class="timeline-label">Timeline — most recent first</p>
+
+      <div class="timeline">
+
+        <div class="timeline-item current">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jan 2025 — Present</span>
+            <span class="timeline-badge">Current</span>
+          </div>
+          <h2 class="timeline-title">Your Current Role or Research</h2>
+          <p class="timeline-org">Organisation / University / Lab Name</p>
+          <p class="timeline-desc">Describe what you're doing here — the goal, your contribution, and any early results or outputs. Keep it to two or three sentences.</p>
+          <div class="timeline-tags">
+            <span class="tag">Skill / Tool</span>
+            <span class="tag">Skill / Tool</span>
+            <span class="tag">Skill / Tool</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jun 2024 — Dec 2024</span>
+          </div>
+          <h2 class="timeline-title">Previous Role or Project</h2>
+          <p class="timeline-org">Organisation / Company Name</p>
+          <p class="timeline-desc">A brief description of what you did, what you learned, and what impact it had. Focus on specifics rather than generic responsibilities.</p>
+          <div class="timeline-tags">
+            <span class="tag">Skill / Tool</span>
+            <span class="tag">Skill / Tool</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Sep 2022 — May 2024</span>
+          </div>
+          <h2 class="timeline-title">Mechanical Engineer</h2>
+          <p class="timeline-org">University Name</p>
+          <p class="timeline-desc">What you studied, key coursework, thesis topic, or any notable achievements during this period. Mention GPA or honours if relevant.</p>
+          <div class="timeline-tags">
+            <span class="tag">Field of Study</span>
+            <span class="tag">Thesis Topic</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Sept 2024 — Dec 2025</span>
+          </div>
+          <h2 class="timeline-title">Arm Sub-Team Member</h2>
+          <p class="timeline-org">UBC Rover</p>
+          <ul class="timeline-list">
+            <li>Employed SolidWorks to redesign forearm axis of motion from belt-driven arrangement to internal gear to eliminate belt maintenance</li>
+            <li>Researched and implemented tapered roller bearings, internal gears, and brushless DC motors for rotation</li>
+            <li>Mentored 3 new mechanical team members in Solidworks and design fundamentals</li>
+            <li>Replaced solid aluminum components with lighter PLA-CF and steel rods, reducing weight by 55%. Validated structural integrity by conducting FEA with SolidWorks Simulation to confirm sufficient material strength at stress concentrations</li>
+            <li>Developed 3D-printed driver holders with aviator sockets using SolidWorks for ease of access in wiring</li>
+            <li>Soldered aviator plugs and wires to drivers to establish connections to arm actuators and sensors</li>
+            <li>Machined holes into a bevel gear using a milling machine to securely attach onto arm with fasteners</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Skill / Tool</span>
+            <span class="tag">Skill / Tool</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Sep 2023 — Apr 2028</span>
+            <span class="timeline-badge">Current</span>
+          </div>
+          <h2 class="timeline-title">Undergraduate Student</h2>
+          <p class="timeline-org">The University of British Columbia</p>
+          <p class="timeline-desc">3rd Year Bachelor of Applied Science<br>Mechanical Engineering, Mechatronics Specialization, Minor in Computer Science.</p>
+          <div class="timeline-tags">
+            <span class="tag">Upper Year Average: 90.9</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Sung Hyun Eun</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('themeBtn');
+    const html = document.documentElement;
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+</body>
+</html>

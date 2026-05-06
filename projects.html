@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f9f7f4; --surface: #ffffff; --border: #e2ddd8;
+      --text: #1a1714; --muted: #7a746e; --accent: #2d5a3d;
+      --accent-lt: #eaf2ec; --tag-bg: #efefec; --tag-text: #4a4742;
+      --nav-bg: rgba(249,247,244,0.88);
+    }
+    [data-theme="dark"] {
+      --bg: #141210; --surface: #1e1b18; --border: #302c28;
+      --text: #f0ece6; --muted: #8a8480; --accent: #6aaa7d;
+      --accent-lt: #1a2e20; --tag-bg: #272320; --tag-text: #b8b2aa;
+      --nav-bg: rgba(20,18,16,0.88);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 300; transition: background 0.3s, color 0.3s; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.3s, border-color 0.3s; }
+    .nav-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--tag-bg); }
+    .nav-links .nav-cta { color: var(--accent); border: 1px solid var(--accent); padding: 0.35rem 0.85rem; border-radius: 4px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--accent); color: #fff; }
+    .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 4px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: border-color 0.2s, color 0.2s; margin-left: 0.5rem; flex-shrink: 0; }
+    .theme-toggle:hover { border-color: var(--text); color: var(--text); }
+    .icon-sun, .icon-moon { width: 15px; height: 15px; }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    .page-header { padding: 120px 0 64px; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--text); }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    /* ── Filters ── */
+    .projects-section { padding: 56px 0 100px; }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 3rem; }
+    .filter-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .filter-btn:hover { border-color: var(--text); color: var(--text); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── Cards grid ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-card.hidden { display: none; }
+
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; line-height: 1.25; color: var(--text); }
+    .card-year { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; color: var(--muted); white-space: nowrap; margin-top: 0.15rem; }
+    .card-desc { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.7; flex: 1; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; padding-top: 0.5rem; }
+    .card-tag {
+      font-size: 0.67rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 0.18rem 0.5rem;
+      border-radius: 3px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+    }
+    .card-link {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Featured card spans 2 cols */
+    .project-card.featured { grid-column: span 2; }
+    @media (max-width: 600px) { .project-card.featured { grid-column: span 1; } }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+    footer .footer-links { display: flex; gap: 1.25rem; }
+    footer a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) { .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; } }
+  </style>
+  <script>const s=localStorage.getItem("theme");if(s)document.documentElement.setAttribute("data-theme",s);</script>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" rel="noopener" class="nav-cta">Résumé</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <p class="page-eyebrow">Projects</p>
+      <h1>Things I've <em>made &amp; explored</em></h1>
+    </header>
+
+    <section class="projects-section" aria-label="Project cards">
+
+      <!-- Filter buttons — update tags to match your real project tags -->
+      <div class="filter-bar" role="group" aria-label="Filter projects by tag">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Research">Research</button>
+        <button class="filter-btn" data-filter="Machine Learning">Machine Learning</button>
+        <button class="filter-btn" data-filter="Web">Web</button>
+        <button class="filter-btn" data-filter="Data">Data</button>
+        <button class="filter-btn" data-filter="Tool">Tool</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- Featured project (spans 2 cols) -->
+        <a href="#" class="project-card featured" data-tags="Research,Machine Learning">
+          <div class="card-header">
+            <h2 class="card-title">Your Main Research Project</h2>
+            <span class="card-year">2025</span>
+          </div>
+          <p class="card-desc">A slightly longer description for your featured project — what problem it solves, the approach you took, and what makes it interesting. This card is wider to give it emphasis.</p>
+          <div class="card-tags">
+            <span class="card-tag">Research</span>
+            <span class="card-tag">Machine Learning</span>
+            <span class="card-tag">Python</span>
+          </div>
+          <span class="card-link">View project ↗</span>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="#" class="project-card" data-tags="Data,Machine Learning">
+          <div class="card-header">
+            <h2 class="card-title">Data Analysis Project</h2>
+            <span class="card-year">2024</span>
+          </div>
+          <p class="card-desc">What dataset you worked with, what you were trying to find, and what the results looked like. Keep it concrete and results-oriented.</p>
+          <div class="card-tags">
+            <span class="card-tag">Data</span>
+            <span class="card-tag">Machine Learning</span>
+            <span class="card-tag">R</span>
+          </div>
+          <span class="card-link">View on GitHub ↗</span>
+        </a>
+
+        <!-- Project 3 -->
+        <a href="#" class="project-card" data-tags="Web,Tool">
+          <div class="card-header">
+            <h2 class="card-title">Web Tool or App</h2>
+            <span class="card-year">2024</span>
+          </div>
+          <p class="card-desc">What the tool does, who it's for, and why you built it. Mention the stack briefly.</p>
+          <div class="card-tags">
+            <span class="card-tag">Web</span>
+            <span class="card-tag">Tool</span>
+            <span class="card-tag">JavaScript</span>
+          </div>
+          <span class="card-link">Live demo ↗</span>
+        </a>
+
+        <!-- Project 4 -->
+        <a href="#" class="project-card" data-tags="Research,Data">
+          <div class="card-header">
+            <h2 class="card-title">Research Paper or Report</h2>
+            <span class="card-year">2023</span>
+          </div>
+          <p class="card-desc">The research question, your methodology, and the key finding. Link to the paper or preprint if available.</p>
+          <div class="card-tags">
+            <span class="card-tag">Research</span>
+            <span class="card-tag">Data</span>
+            <span class="card-tag">Statistics</span>
+          </div>
+          <span class="card-link">Read paper ↗</span>
+        </a>
+
+        <!-- Project 5 -->
+        <a href="#" class="project-card" data-tags="Tool,Web">
+          <div class="card-header">
+            <h2 class="card-title">Another Tool or Script</h2>
+            <span class="card-year">2023</span>
+          </div>
+          <p class="card-desc">A useful script, CLI tool, or automation you built. What pain point it solves and how you'd use it.</p>
+          <div class="card-tags">
+            <span class="card-tag">Tool</span>
+            <span class="card-tag">Python</span>
+          </div>
+          <span class="card-link">View on GitHub ↗</span>
+        </a>
+
+        <!-- Project 6 -->
+        <a href="#" class="project-card" data-tags="Machine Learning">
+          <div class="card-header">
+            <h2 class="card-title">ML Experiment or Model</h2>
+            <span class="card-year">2022</span>
+          </div>
+          <p class="card-desc">What you trained, what architecture or approach, and what results you got. Even exploratory work is worth showing.</p>
+          <div class="card-tags">
+            <span class="card-tag">Machine Learning</span>
+            <span class="card-tag">PyTorch</span>
+          </div>
+          <span class="card-link">View on GitHub ↗</span>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Your Name</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:you@email.com">Email</a>
+      <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </footer>
+
+  <script>
+    // Theme
+    const btn = document.getElementById('themeBtn');
+    const html = document.documentElement;
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all') {
+            card.classList.remove('hidden');
+          } else {
+            const tags = card.dataset.tags || '';
+            card.classList.toggle('hidden', !tags.includes(filter));
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

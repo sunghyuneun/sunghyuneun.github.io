@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f9f7f4; --surface: #ffffff; --border: #e2ddd8;
+      --text: #1a1714; --muted: #7a746e; --accent: #2d5a3d;
+      --accent-lt: #eaf2ec; --tag-bg: #efefec; --tag-text: #4a4742;
+      --nav-bg: rgba(249,247,244,0.88);
+    }
+    [data-theme="dark"] {
+      --bg: #141210; --surface: #1e1b18; --border: #302c28;
+      --text: #f0ece6; --muted: #8a8480; --accent: #6aaa7d;
+      --accent-lt: #1a2e20; --tag-bg: #272320; --tag-text: #b8b2aa;
+      --nav-bg: rgba(20,18,16,0.88);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 300; transition: background 0.3s, color 0.3s; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.3s, border-color 0.3s; }
+    .nav-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--text); text-decoration: none; letter-spacing: 0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--tag-bg); }
+    .nav-links .nav-cta { color: var(--accent); border: 1px solid var(--accent); padding: 0.35rem 0.85rem; border-radius: 4px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--accent); color: #fff; }
+    .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 4px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: border-color 0.2s, color 0.2s; margin-left: 0.5rem; flex-shrink: 0; }
+    .theme-toggle:hover { border-color: var(--text); color: var(--text); }
+    .icon-sun, .icon-moon { width: 15px; height: 15px; }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    .page-header { padding: 120px 0 64px; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--text); }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    .section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; padding-bottom: 100px; }
+    .section-label { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem; }
+
+    /* About layout */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+    .photo-wrap { position: relative; }
+    .photo-placeholder { width: 100%; aspect-ratio: 3/4; background: var(--tag-bg); border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px dashed var(--border); }
+    .photo-placeholder svg { width: 36px; height: 36px; opacity: 0.4; }
+    .photo-wrap img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; display: block; }
+    .photo-caption { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; font-style: italic; }
+
+    .about-bio h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; line-height: 1.3; margin-bottom: 1.5rem; color: var(--text); }
+    .about-bio p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.85; margin-bottom: 1.25rem; }
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    /* Quick facts */
+    .facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 2.5rem; }
+    .fact { background: var(--surface); padding: 1.25rem 1.5rem; }
+    .fact-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+    .fact-value { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--text); }
+
+    /* Interests */
+    .interests-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .interest-tag { font-size: 0.82rem; font-weight: 300; padding: 0.4rem 0.9rem; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); border: 1px solid var(--border); }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+    footer .footer-links { display: flex; gap: 1.25rem; }
+    footer a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .photo-placeholder { aspect-ratio: 4/3; }
+    }
+  </style>
+  <script>const s=localStorage.getItem("theme");if(s)document.documentElement.setAttribute("data-theme",s);</script>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Résumé</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <p class="page-eyebrow">About</p>
+      <h1>A little bit about <em>me</em></h1>
+    </header>
+
+    <section class="section">
+      <div class="about-grid">
+        <div class="photo-wrap">
+          <div class="photo-placeholder">
+            <img src="assets/img/linkedinpfp.jpg" alt="Profile Picture">
+          </div>
+        </div>
+        <div class="about-bio">
+          <h2>Hi, I'm Sung Hyun Eun.</h2>
+          <p>I'm a 3rd year mechatronics student at UBC, based in Vancouver! I am working towards entering robotics, and I am studying high-level autonomous control outside of school. </p>
+          <p>My work has explored various areas of robotics, which gives me a unique eclectic approach to robot design. This includes mechanical design, ROS2, PCB and electrical engineering, firmware, and policy training.</p>
+          <p>In my spare time, I love reading (Shoutout to The Economist's Espresso), playing basketball and table tennis with friends, and slowly learning to play the guitar.</p>
+          <div class="facts-grid">
+            <div class="fact"><p class="fact-label">Based in</p><p class="fact-value">Vancouver, Canada</p></div>
+            <div class="fact"><p class="fact-label">Field of Study</p><p class="fact-value">Mechanical Engineering</p></div>
+            <div class="fact"><p class="fact-label">Affiliation</p><p class="fact-value">The University of British Columbia</p></div>
+            <div class="fact"><p class="fact-label">Open to</p><p class="fact-value">Collaborations!</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-label">Interests</p>
+      <div class="interests-list">
+        <span class="interest-tag">Robotics</span>
+        <span class="interest-tag">Reading (Typically Non-Fiction)</span>
+        <span class="interest-tag">Basketball</span>
+        <span class="interest-tag">Guitar</span>
+        <span class="interest-tag">Learning</span>  
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Sung Hyun Eun</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('themeBtn');
+    const html = document.documentElement;
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+</body>
+</html>

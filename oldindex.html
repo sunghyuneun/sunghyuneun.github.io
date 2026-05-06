@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Sung Hyun Eun - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Basic Reset */
@@ -338,21 +339,23 @@
             }
         }
     </style>
+    <meta name="google-site-verification" content="i7Bw5bEueW15LauZJCN-xF0Cx52bYR7MdXoCIt2845o" />
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1 class="logo"><a href="#" data-page="home">Your Name</a></h1>
+            <h1 class="logo"><a href="#" data-page="home">Sung Hyun Eun</a></h1>
             <nav>
                 <ul>
                     <li><a href="#" data-page="about">About</a></li>
                     <li><a href="#" data-page="projects">Projects</a></li>
                     <li><a href="#" data-page="experience">Experience</a></li>
-                    <li><a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                    <li><a href="mailto:yourschool@email.edu" aria-label="School Email"><i class="fas fa-university"></i></a></li>
-                    <li><a href="mailto:yournormal@email.com" aria-label="Personal Email"><i class="fas fa-envelope"></i></a></li>
+                    <li><a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" aria-label="Resume"><i class="fas fa-file-alt"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/sunghyuneun" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li><a href="mailto:seun02@student.ubc.ca" aria-label="School Email"><i class="fas fa-university"></i></a></li>
+                    <li><a href="mailto:gregoryeun@gmail.com" aria-label="Personal Email"><i class="fas fa-envelope"></i></a></li>
                 </ul>
             </nav>
         </div>
@@ -365,11 +368,12 @@
                 <div class="profile-section">
                     <div class="profile-image">
                         <!-- Use a placeholder image for now. Replace with your own. -->
-                        <img src="https://placehold.co/200x200/007BFF/FFFFFF?text=Profile" alt="Your Profile Picture">
+                        <img src="assets/img/linkedinpfp.jpg" alt="Your Profile Picture">
                     </div>
                     <div class="profile-description">
-                        <h2>Hello, I'm [Your Name] 👋</h2>
-                        <p>I am a [Your Profession/Student Status] with a passion for building innovative and efficient solutions. I specialize in [Your Key Skills] and am always eager to learn new technologies. This is my portfolio where you can find my work, experience, and contact information.</p>
+                        <h2>Hi, I'm Sung Hyun.</h2>
+                        <p>Mechatronics student at UBC with a passion for robotics and reinforcement learning. This is my portfolio where you can find my projects, experience, and contact information.</p>
+                        <br>
                         <p>Learn more about me on the <a href="#" data-page="about">About</a> page.</p>
                     </div>
                 </div>
@@ -384,6 +388,19 @@
             </div>
         </div>
 
+        <!-- About Page
+        <div id="about-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>About Me</h2>
+                </div>
+                <div class="page-content">
+                    <p>Hi, I'm Sung Hyun (Greg). I am working towards entering robotics, and I am learning control theory and machine learning. In my spare time, I like reading (currently on Nexus by Yuval Noah Harari), learning to play the guitar, and enjoying my school days with friends.</p>
+                    <br>
+                    <p>I’m also studying reinforcement learning in my spare time, and I’m interested in research and methods to deploy models into hardware.</p>
+                </div>
+            </div>
+        </div>-->
         <!-- About Page -->
         <div id="about-page" class="page">
             <div class="container">
@@ -395,6 +412,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- Projects Page -->
         <div id="projects-page" class="page">
@@ -409,6 +427,7 @@
                 </div>
             </div>
         </div>
+        
 
         <!-- Project Detail Page (New!) -->
         <div id="project-detail-page" class="page">
@@ -420,6 +439,21 @@
             </div>
         </div>
 
+        <!-- Experience Page 
+        <div id="experience-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Experience</h2>
+                </div>
+                <div class="page-content">
+                    <p>UBC Rover, Arm Mechanical Subteam</p>
+                    <br>
+                    <p>UBC Thunderbots, Electrical Subteam</p>
+                    <br>
+                    <p>If you are a professor, this line could be YOUR lab right here! (Please let me do research I will be a slave)</p>
+                </div>
+            </div>
+        </div>-->
         <!-- Experience Page -->
         <div id="experience-page" class="page">
             <div class="container">
@@ -435,24 +469,48 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>&copy; 2025 Sung Hyun Eun. All rights reserved.</p>
         </div>
     </footer>
+
     <script>
         // A simple Markdown to HTML converter function
         const markdownToHtml = (markdown) => {
             let html = markdown
-                // Convert headings
+                
+                // Convert headings: # Heading -> <h1>...</h1> (etc. for ## and ###)
                 .replace(/^### (.*$)/gim, '<h3>$1</h3>')
                 .replace(/^## (.*$)/gim, '<h2>$1</h2>')
                 .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-                // Convert bold and italic text
+
+                // NEW: Convert Unordered List Items (* or -) into <ul><li>...</li></ul> blocks
+                .replace(/^[\s]*[\*-] (.*$)/gim, '<ul><li>$1</li></ul>')
+                
+                // NEW: Convert Ordered List Items (1. 2. 3.) into <ol><li>...</li></ol> blocks
+                .replace(/^[\s]*[0-9]+\. (.*$)/gim, '<ol><li>$1</li></ol>')
+                
+                // NEW: Merge consecutive <ul> tags into a single block (e.g., </ul><ul> -> empty string)
+                .replace(/<\/ul>\s*<ul>/gim, '')
+                
+                // NEW: Merge consecutive <ol> tags into a single block
+                .replace(/<\/ol>\s*<ol>/gim, '')
+
+                // Convert images: ![alt](url) -> <img src="url" alt="alt">
+                .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="markdown-image">')
+
+
+                // NEW: Convert Links: [text](url) -> <a href="url" target="_blank">text</a>
+                .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
+                
+                // Convert bold and italic text: **bold** / *italic*
                 .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-                // Convert paragraphs and line breaks
+                
+                // Convert paragraphs and line breaks: double newline to </p><p>, single newline to <br>
                 .replace(/\n\n/g, '</p><p>')
-                .replace(/\n/g, '<br>')
+                .replace(/\n/g, '<br>');
             
+            // Final wrap to ensure the entire block of text starts and ends with a paragraph tag.
             return `<p>${html}</p>`;
         };
 
@@ -531,11 +589,9 @@
         // This function fetches the projects metadata from projects.json
         const fetchProjectsData = async () => {
             try {
-                const url = 'data/projects.json';
-                console.log(`Attempting to fetch projects from: ${url}`);
-                const response = await fetch(url);
+                const response = await fetch('data/projects.json');
                 if (!response.ok) {
-                    throw new Error(`Could not fetch projects data from ${url}. Status: ${response.status}`);
+                    throw new Error('Could not fetch projects data.');
                 }
                 return await response.json();
             } catch (error) {
@@ -592,3 +648,4 @@
     </script>
 </body>
 </html>
+
