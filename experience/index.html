@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience — Your Name</title>
+  <title>Sung Hyun Eun</title>
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -68,16 +69,23 @@
 
     .timeline-item {
       position: relative;
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      max-width: 650px;
+      padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+      transition: border-color 0.2s;
     }
+    .timeline-item:hover { border-color: var(--accent); }
     .timeline-item:last-child { margin-bottom: 0; }
 
     /* Dot */
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -2.5rem;
-      top: 7px;
+      left: -2.1rem;
+      top: 1.65rem;
       width: 11px;
       height: 11px;
       border-radius: 50%;
@@ -180,11 +188,11 @@
 <body>
   <nav aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Your Name</a>
+      <a href="../" class="nav-logo">Sung Hyun Eun</a>
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="experience.html" class="active">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
+        <li><a href="../about/" class="active">About</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../projects">Projects</a></li>
         <li><a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
         <li><a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Résumé</a></li>
       </ul>
@@ -202,48 +210,73 @@
     </header>
 
     <section class="timeline-section" aria-label="Experience timeline">
-      <p class="timeline-label">Timeline — most recent first</p>
+      <p class="timeline-label">Timeline</p>
 
       <div class="timeline">
 
         <div class="timeline-item current">
           <div class="timeline-meta">
-            <span class="timeline-date">Jan 2025 — Present</span>
+            <span class="timeline-date">Jan 2026 — Present</span>
             <span class="timeline-badge">Current</span>
           </div>
-          <h2 class="timeline-title">Your Current Role or Research</h2>
-          <p class="timeline-org">Organisation / University / Lab Name</p>
-          <p class="timeline-desc">Describe what you're doing here — the goal, your contribution, and any early results or outputs. Keep it to two or three sentences.</p>
+          <h2 class="timeline-title">Undergraduate Student Researcher</h2>
+          <p class="timeline-org">PRIME Robotics Lab</p>
+          <ul class="timeline-list">
+            <li>Developing Lagrangian Mechanics-based model of a hybrid soft-rigid tendon-based finger to map motor torque commands to enable accurate control of 3-joint fingertip force
+            <li>Implementing prediction controller and model to account for dynamic variations for precise manipulation</li>
+          </ul>
           <div class="timeline-tags">
-            <span class="tag">Skill / Tool</span>
-            <span class="tag">Skill / Tool</span>
-            <span class="tag">Skill / Tool</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Python</span>
+            <span class="tag">Dynamixel</span>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-meta">
-            <span class="timeline-date">Jun 2024 — Dec 2024</span>
+            <span class="timeline-date">Sept 2025 — Present</span>
+            <span class="timeline-badge">Current</span>
           </div>
-          <h2 class="timeline-title">Previous Role or Project</h2>
-          <p class="timeline-org">Organisation / Company Name</p>
-          <p class="timeline-desc">A brief description of what you did, what you learned, and what impact it had. Focus on specifics rather than generic responsibilities.</p>
+          <h2 class="timeline-title">Electrical Sub-Team Member </h2>
+          <p class="timeline-org">UBC Thunderbots</p>
+          <ul class="timeline-list">
+            <li>Simulating control model of Three-Phase Inverter in MATLAB and Simulink to measure dynamics of motor and tune PI controller gains for Field Oriented Control (FOC)</li>
+            <li>Redesigned differential op-amp current sense circuit on Motor Driver board for use with FOC</li>
+            <li>Researched and calculated component values considering low-pass cutoff frequencies to filter out crosstalk while maintaining signal integrity, achieving a clear cutoff frequency of 250 kHz</li>
+            <li>Simulated circuit using LTSpice with small-signal AC analysis (Bode Plot) to verify stability and performance, confirming 26 kHz FOC sampling requirement</li>
+            <li>Designed UI board PCB by doing component layout and routing traces to minimize noise and reduce impedance</li>
+            <li>Employed Ansible to flash firmware from Raspberry Pi to motor drivers. Built firmware in Bazel, used Ansible to SSH into Pi, and utilized OpenOCD to flash to STM32 boards</li>
+          </ul>
           <div class="timeline-tags">
-            <span class="tag">Skill / Tool</span>
-            <span class="tag">Skill / Tool</span>
+            <span class="tag">Altium</span>
+            <span class="tag">LTSpice</span>
+            <span class="tag">Circuit Design</span>
+            <span class="tag">MATLAB / Simulink</span>
+            <span class="tag">Raspberry Pi</span>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-meta">
-            <span class="timeline-date">Sep 2022 — May 2024</span>
+            <span class="timeline-date">May 2025 — Dec 2025</span>
           </div>
           <h2 class="timeline-title">Mechanical Engineer</h2>
-          <p class="timeline-org">University Name</p>
-          <p class="timeline-desc">What you studied, key coursework, thesis topic, or any notable achievements during this period. Mention GPA or honours if relevant.</p>
+          <p class="timeline-org">Global Gourmet Foods</p>
+          <ul class="timeline-list">
+            <li>Created a secure data bridge on a Zimaboard that collects PLC data on a network and displays it on a webpage on another network using Docker, Python, InfluxDB, and Grafana</li>
+            <li>Deployed Proxmox VE to host virtual machines and run containerized programs across multiple computers</li>
+            <li>Containerized, edited a JavaScript web app using Docker, React.js, and MariaDB to digitize factory records</li>
+            <li>Automated invoice processing with Microsoft Power Automate and Excel Scripts to reduce approval delays</li>
+            <li>Generated flattened engineering drawings of 3D CAD models; exported DXF files for waterjet cutters, and researched appropriate conveyor components such as casters, bolts, and nuts</li>
+          </ul>
           <div class="timeline-tags">
-            <span class="tag">Field of Study</span>
-            <span class="tag">Thesis Topic</span>
+            <span class="tag">PLC Programming</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Proxmox VE</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Microsoft Suite</span>
+            <span class="tag">OnShape</span>
           </div>
         </div>
 
@@ -263,8 +296,10 @@
             <li>Machined holes into a bevel gear using a milling machine to securely attach onto arm with fasteners</li>
           </ul>
           <div class="timeline-tags">
-            <span class="tag">Skill / Tool</span>
-            <span class="tag">Skill / Tool</span>
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Finite Element Analysis</span>
+            <span class="tag">CAD</span>
+            <span class="tag">3D Printing</span>
           </div>
         </div>
 
@@ -275,7 +310,13 @@
           </div>
           <h2 class="timeline-title">Undergraduate Student</h2>
           <p class="timeline-org">The University of British Columbia</p>
-          <p class="timeline-desc">3rd Year Bachelor of Applied Science<br>Mechanical Engineering, Mechatronics Specialization, Minor in Computer Science.</p>
+          <p class="timeline-desc">3rd Year Bachelor of Applied Science</p>
+          <p class="timeline-desc">Mechanical Engineering, Mechatronics Specialization, Minor in Computer Science.</p>
+          <p class="timeline-desc">Awards:</p>
+          <ul class="timeline-list">
+            <li>Trek Excellence Scholarship for Continuing Students</li>
+            <li>Chemetics Tatsu Ueki Memorial Scholarship in Engineering</li>
+          </ul>
           <div class="timeline-tags">
             <span class="tag">Upper Year Average: 90.9</span>
           </div>
