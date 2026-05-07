@@ -60,8 +60,8 @@
     .timeline::before {
       content: '';
       position: absolute;
-      left: 5px;
-      top: 6px;
+      left: 10px;
+      top: 0;
       bottom: 0;
       width: 1px;
       background: var(--line);
@@ -80,12 +80,12 @@
     .timeline-item:hover { border-color: var(--accent); }
     .timeline-item:last-child { margin-bottom: 0; }
 
-    /* Dot */
+    /* Dot — centred on the line (left: 10px on parent = left: -2.5rem + 10px offset on child) */
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -2.1rem;
-      top: 1.65rem;
+      left: -2.25rem;
+      top: 1.45rem;
       width: 11px;
       height: 11px;
       border-radius: 50%;
