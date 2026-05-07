@@ -171,16 +171,17 @@
       <div class="filter-bar" role="group" aria-label="Filter projects by tag">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="Research">Research</button>
-        <button class="filter-btn" data-filter="Machine Learning">Machine Learning</button>
-        <button class="filter-btn" data-filter="Web">Web</button>
-        <button class="filter-btn" data-filter="Data">Data</button>
-        <button class="filter-btn" data-filter="Tool">Tool</button>
+        <button class="filter-btn" data-filter="Personal Project">Personal Project</button>
+        <button class="filter-btn" data-filter="Design Team">Design Team</button>
+        <button class="filter-btn" data-filter="AI & Machine Learning">AI & Machine Learning</button>
+        <button class="filter-btn" data-filter="Robotics">Robotics</button>
+        <button class="filter-btn" data-filter="Hardware Design">Hardware Design</button>
       </div>
-
+      
       <div class="projects-grid" id="projectsGrid">
 
         <!-- Project: Baymax -->
-        <div class="project-card" data-tags="Data,Machine Learning">
+        <div class="project-card" data-tags="Personal Project,AI & Machine Learning,Robotics">
           <a href="baymax/" class="card-body">
             <div class="card-header">
               <h2 class="card-title">Baymax Simulation</h2>
@@ -188,8 +189,8 @@
             </div>
             <p class="card-desc">Designing a Baymax robot from the film Big Hero 6, and training it to imitate its movements from animations.</p>
             <div class="card-tags">
-              <span class="card-tag">Machine Learning</span>
               <span class="card-tag">Reinforcement Learning</span>
+              <span class="card-tag">NVIDIA Isaac Sim</span>
             </div>
           </a>
           <div class="card-footer">
@@ -198,12 +199,30 @@
           </div>
         </div>
 
+        <div class="project-card" data-tags="Research,Robotics">
+          <a href="prime/" class="card-body">
+            <div class="card-header">
+              <h2 class="card-title">Hybrid Robot Hand Modelling and Control</h2>
+              <span class="card-year">2026</span>
+            </div>
+            <p class="card-desc">Conducting research under Professor Chao Liu in the PRIME Robotics Lab, to build a force-prediction controller for a soft-rigid hybrid hand.</p>
+            <div class="card-tags">
+              <span class="card-tag">Machine Learning</span>
+              <span class="card-tag">Dynamixel</span>
+            </div>
+          </a>
+          <div class="card-footer">
+            <a href="#" class="card-link">Read more ↗</a>
+            <!-- <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener" class="card-link">GitHub ↗</a> -->
+          </div>
+        </div>
+
         <!-- Project: Drone -->
-        <div class="project-card" data-tags="Robotics,Tool">
+        <div class="project-card" data-tags="Personal Project,Robotics,AI & Machine Learning">
           <a href="drone/" class="card-body">
             <div class="card-header">
               <h2 class="card-title">Autonomous Drone</h2>
-              <span class="card-year">2024</span>
+              <span class="card-year">2025</span>
             </div>
             <p class="card-desc">Exploratory drone created to explore SLAM, Odometry, and Reinforcement Learning, inspired by Turtlebot.</p>
             <div class="card-tags">
@@ -219,17 +238,18 @@
         </div>
 
         <!-- Project: Placeholder 3 -->
-        <div class="project-card" data-tags="Research,Data">
-          <a href="#" class="card-body">
+        <div class="project-card" data-tags="Design Team,Robotics,Hardware Design">
+          <a href="thunderbots/" class="card-body">
             <div class="card-header">
               <h2 class="card-title">Thunderbots Contributions</h2>
-              <span class="card-year">2023</span>
+              <span class="card-year">2025 - 2026</span>
             </div>
             <p class="card-desc">My work for the UBC Thunderbots Electrical Subteam.</p>
             <div class="card-tags">
-              <span class="card-tag">Research</span>
-              <span class="card-tag">Data</span>
-              <span class="card-tag">Statistics</span>
+              <span class="card-tag">Altium Designer</span>
+              <span class="card-tag">LTSpice</span>
+              <span class="card-tag">MATLAB</span>
+              <span class="card-tag">Simulink</span>
             </div>
           </a>
           <div class="card-footer">
@@ -242,37 +262,58 @@
         <div class="project-card" data-tags="Tool">
           <a href="#" class="card-body">
             <div class="card-header">
-              <h2 class="card-title">Another Tool or Script</h2>
-              <span class="card-year">2023</span>
+              <h2 class="card-title">Self Balancing Robot</h2>
+              <span class="card-year">2025</span>
             </div>
-            <p class="card-desc">A useful script, CLI tool, or automation you built. What pain point it solves and how you'd use it.</p>
+            <p class="card-desc">Self Balancing Robot. Currently PID Controller in Gazebo, RL controller being created, physical deployed model is planned.</p>
             <div class="card-tags">
-              <span class="card-tag">Tool</span>
-              <span class="card-tag">Python</span>
+              <span class="card-tag">ROS2</span>
+              <span class="card-tag">Gazebo</span>
+              <span class="card-tag">PlatformIO</span>
             </div>
           </a>
           <div class="card-footer">
             <a href="#" class="card-link">Read more ↗</a>
-            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
+            <a href="https://github.com/sunghyuneun/Balancing-Robot" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
           </div>
         </div>
 
         <!-- Project: Placeholder 5 -->
-        <div class="project-card" data-tags="Machine Learning">
+        <div class="project-card" data-tags="Design Team,Robotics">
           <a href="#" class="card-body">
             <div class="card-header">
-              <h2 class="card-title">ML Experiment or Model</h2>
-              <span class="card-year">2022</span>
+              <h2 class="card-title">Rover Contributions</h2>
+              <span class="card-year">2024 - 2025</span>
             </div>
-            <p class="card-desc">What you trained, what architecture or approach, and what results you got. Even exploratory work is worth showing.</p>
+            <p class="card-desc">My work for the UBC Rover Arm Subteam.</p>
             <div class="card-tags">
-              <span class="card-tag">Machine Learning</span>
-              <span class="card-tag">PyTorch</span>
+              <span class="card-tag">SolidWorks</span>
+              <span class="card-tag">Finite Element Analysis</span>
             </div>
           </a>
           <div class="card-footer">
             <a href="#" class="card-link">Read more ↗</a>
-            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
+            <a href="https://github.com/sunghyuneun/Rover-Contributions" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-tags="Machine Learning">
+          <a href="#" class="card-body">
+            <div class="card-header">
+              <h2 class="card-title">Autonomous Turret</h2>
+              <span class="card-year">2025</span>
+            </div>
+            <p class="card-desc">Raspberry Pi controlled Autonomous Turret built in 3 weeks.</p>
+            <div class="card-tags">
+              <span class="card-tag">ROS2</span>
+              <span class="card-tag">OpenCV</span>
+              <span class="card-tag">Python</span>
+              <span class="card-tag">C++</span>
+            </div>
+          </a>
+          <div class="card-footer">
+            <a href="#" class="card-link">Read more ↗</a>
+            <a href="https://github.com/sunghyuneun/Autonomous-Turret" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
           </div>
         </div>
 
@@ -285,6 +326,7 @@
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/sunghyuneun/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://drive.google.com/file/d/1MfmQCF6nde3eEGOxx1bK-7xpF2-CnRjJ/view?usp=sharing" target="_blank" rel="noopener">Résumé</a>
+      <a>Email: gregoryeun[at]gmail.com</a>
     </div>
   </footer>
 
