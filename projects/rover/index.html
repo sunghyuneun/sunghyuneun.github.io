@@ -104,43 +104,40 @@
     <a href="../../projects/" class="back-link">← Back to Projects</a>
 
     <header class="project-header">
-      <p class="project-eyebrow">Personal Project</p>
-      <h1>Autonomous <em>Drone</em></h1>
+      <p class="project-eyebrow">Design Team</p>
+      <h1>UBC Rover <em>Contributions</em></h1>
       <div class="project-meta">
-        <span class="meta-year">2024</span>
+        <span class="meta-year">2025 - 2026</span>
         <span class="meta-tag">Robotics</span>
-        <span class="meta-tag">SLAM</span>
-        <span class="meta-tag">ROS</span>
-        <span class="meta-tag">Python</span>
+        <span class="meta-tag">SolidWorks</span>
+        <span class="meta-tag">Finite Element Analysis</span>
       </div>
       <div class="project-links">
-        <a href="https://github.com/sunghyuneun/Autonomous-Drone" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
+        <a href="https://github.com/sunghyuneun/Rover-Contributions" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
       </div>
     </header>
 
     <div class="project-body">
       <h2>Overview</h2>
-      <p>Differential drive robot, meant to emulate Turtlebot 3.</p>
+      <p>I worked on 3 main projects while at UBC Rover.</p>
+      <ol>
+        <li>Designed and 3D printed an organizer to hold stepper motor drivers, screw terminals, Teensy, and aviator connectors. Designed for cable organization, motor driver heat dissipation, and ease of use. </li>
+        <li>Redesigned and 3D printed parts for Axis 4 (the "elbow") of Arm, from belt-driven to an internal gear mechanism. Researched angled roller bearings, BLDC motors, and gears to specifications.</li>
+        <li>Improved Wrist Differential Drive Uprights to deform less due to a moment caused by belt tension. Conducted FEA Analysis on prototypes, and created a hybrid design that uses both PLA-CF with embedded sheet metal to balance weight and strength. </li>
+      </ol>
 
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/rg7pI7mpyLs" title="Autonomous Drone Moving" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-     <!--div class="img-placeholder">Add a screenshot or demo GIF here</div-->
+      <h2>Driver Organizer</h2>
+      <p>As can be seen below, the terminal compactly organized 7 stepper motor drivers, 2 screw terminals, and a Teensy. The wires could also routed to the holes below, which were designed to have aviator connectors attached. </p>
+      <img src="../../assets/img/rover/DriverHolder.png" width="640">
 
-      <h2>Lidar</h2>
-      <p>Visualized LiDAR information from Raspberry Pi onto Desktop using RViz2.</p>
-      <img src="../../assets/img/autonomous_drone/lidar.png" width="640" alt="LiDAR Image">
 
-      <p>After I moved, I could not set up proper port forwarding at my dorm between my Raspberry Pi and my VM, so I switched to Foxglove.</p>
-      <p>Here is an example Map with my robot and LiDAR visualized on it.</p>
+      <h2>Axis 4 Redesign</h2>
+      <p>I redesigned the Axis 4 of the arm ("elbow") to use an internal gear, instead of our old belt-driven design. Because belts have to be constantly retensioned, we determined it would take less effort to maintain with an internal gear. The design is visible below, to the left of the pipe. On the right of the pipe is the Wrist Differential Uprights. </p>
+      <img src="../../assets/img/rover/rover_assembly.png" width="640">
 
-      <img src="../../assets/img/autonomous_drone/FoxgloveMap.png" width="640">
-
-      <h2>Assembly</h2>
-      <p>Finished the CAD assembly, and built it in real life. </p>
-      <img src="../../assets/img/autonomous_drone/fullassembly.png" width="640">
-      <img src="../../assets/img/autonomous_drone/Drone1.jpg" width="640">
-      <img src="../../assets/img/autonomous_drone/Drone2.jpg" width="640">
-      <img src="../../assets/img/autonomous_drone/Drone3.jpg" width="640">
-
+      <h2>Wrist Differential Upright Holders</h2>
+      <p>I redesigned it to deform less, as well as conducting FEA analysis to analyze which locations need to be reinforced the most. </p>
+      <img src="../../assets/img/rover/UprightStudy.png" width="640">
     </div>
   </main>
 
